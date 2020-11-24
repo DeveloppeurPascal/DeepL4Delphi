@@ -4,9 +4,9 @@
 
 Delphi library and sample projects for using the translation API provided by DeepL.com
 
-DeepL is an online translation tool available at ()[https://www.deepl.com/].
+DeepL is an online translation tool available at https://www.deepl.com/
 
-With a (developper access)[https://www.deepl.com/pro#developer] we can integrate translation functionalities in our projects.
+With a developper access available at https://www.deepl.com/pro#developer we can integrate translation functionalities in our projects.
 
 This repository contains library and sample projects for Delphi users. To use it you need an account and an API key from DeepL.
 
@@ -26,9 +26,9 @@ Finally, if you prefer reading to video, you can find all the recent books publi
 
 Bibliothèque Delphi et exemples de projets pour l'utilisation de l'API de traduction fournis par DeepL.com
 
-DeepL est un outil de traduction en ligne disponible sur ()[https://www.deepl.com/].
+DeepL est un outil de traduction en ligne disponible sur https://www.deepl.com/
 
-Avec un (accès développeur)[https://www.deepl.com/pro#developer], nous pouvons intégrer des fonctionnalités de traduction dans nos projets.
+Avec un accès développeur disponible sur https://www.deepl.com/pro#developer nous pouvons intégrer des fonctionnalités de traduction dans nos projets.
 
 Ce dépôt contient une bibliothèque et des exemples de projets pour les utilisateurs de Delphi. Pour l'utiliser, vous avez besoin d'un compte et d'une clé API de DeepL.
 
