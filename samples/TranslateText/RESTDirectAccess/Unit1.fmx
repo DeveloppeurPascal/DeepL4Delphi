@@ -1,0 +1,97 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  Padding.Left = 10.000000000000000000
+  Padding.Top = 10.000000000000000000
+  Padding.Right = 10.000000000000000000
+  Padding.Bottom = 10.000000000000000000
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Align = Top
+    TabOrder = 0
+    Text = 'Bonjour chez vous !'
+    Position.X = 10.000000000000000000
+    Position.Y = 10.000000000000000000
+    Margins.Right = 90.000000000000000000
+    Size.Width = 530.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Texte '#224' traduire'
+    object Button1: TButton
+      Align = Right
+      Margins.Right = -90.000000000000000000
+      Position.X = 540.000000000000000000
+      TabOrder = 0
+      Text = 'Button1'
+      OnClick = Button1Click
+    end
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    Margins.Top = 10.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 428.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 620.000000000000000000
+    Viewport.Height = 428.000000000000000000
+  end
+  object RESTClient1: TRESTClient
+    BaseURL = 'https://api.deepl.com/v2/translate'
+    Params = <>
+    Left = 320
+    Top = 152
+  end
+  object RESTRequest1: TRESTRequest
+    AssignedValues = [rvConnectTimeout, rvReadTimeout]
+    Client = RESTClient1
+    Method = rmPOST
+    Params = <
+      item
+        Name = 'auth_key'
+        Value = 'aa6d167b-5d54-86e5-6f9c-cfe3760051a1'
+      end
+      item
+        Name = 'source_lang'
+        Value = 'FR'
+      end
+      item
+        Name = 'target_lang'
+        Value = 'EN'
+      end
+      item
+        Name = 'split_sentences'
+        Value = '0'
+      end
+      item
+        Name = 'preserve_formatting'
+        Value = '0'
+      end
+      item
+        Name = 'text'
+        Value = 'ma phrase '#224' traduire'
+      end
+      item
+        Name = 'formality'
+        Value = 'default'
+      end>
+    Response = RESTResponse1
+    OnAfterExecute = RESTRequest1AfterExecute
+    Left = 160
+    Top = 160
+  end
+  object RESTResponse1: TRESTResponse
+    RootElement = 'translations'
+    Left = 456
+    Top = 200
+  end
+end
