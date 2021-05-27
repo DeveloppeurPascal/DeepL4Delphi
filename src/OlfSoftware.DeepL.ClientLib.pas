@@ -2,26 +2,25 @@ unit OlfSoftware.DeepL.ClientLib;
 
 interface
 
-// TODO : fill summary comments
 type
   /// <summary>
-  ///
+  /// Callback procedure when translation is ok
   /// </summary>
   TOnTextTranslatedProc = reference to procedure(OriginalText, TranslatedText,
     SourceLang, TargetLang: string);
   /// <summary>
-  ///
+  /// Callback procedure when translation has an error
   /// </summary>
   TOnTextTranslatedErrorProc = reference to procedure(OriginalText, SourceLang,
     TargetLang, ErrorText: string);
 
   /// <summary>
-  ///
+  /// Callback method/event when translation is ok
   /// </summary>
   TOnTextTranslatedEvent = procedure(OriginalText, TranslatedText, SourceLang,
     TargetLang: string) of object;
   /// <summary>
-  ///
+  /// Callback method/event when translation has an error
   /// </summary>
   TOnTextTranslatedErrorEvent = procedure(OriginalText, SourceLang, TargetLang,
     ErrorText: string) of object;
@@ -68,7 +67,8 @@ implementation
 // TODO : (add global parameter) choose if result text with error is empty or equal original text
 
 uses
-  System.Net.HttpClient, System.Classes, System.SysUtils, System.JSON
+  System.Net.HttpClient, System.Classes, System.SysUtils, System.JSON,
+  System.Generics.Collections
 {$IF CompilerVersion >=32.0}
     , System.Threading
 {$ENDIF}
@@ -104,6 +104,8 @@ begin
       Params.AddPair('formality', formality);
       APIResponse := APIServer.Post
         ('https://api.deepl.com/v2/translate', Params);
+// TODO : changement URL si utilisation API gratuite => à paramétrer avec la clé d'API
+// ('https://api-free.deepl.com/v2/translate', Params);
     finally
       Params.free;
     end;

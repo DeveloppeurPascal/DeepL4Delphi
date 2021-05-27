@@ -10,6 +10,68 @@ With a developper access available at https://www.deepl.com/pro#developer we can
 
 This repository contains library and sample projects for Delphi users. To use it you need an account and an API key from DeepL.
 
+## Managed languages
+
+According to https://www.deepl.com/docs-api/translating-text/ then From / To languages are :
+
+### Source languages
+
+"BG" - Bulgarian
+"CS" - Czech
+"DA" - Danish
+"DE" - German
+"EL" - Greek
+"EN" - English
+"ES" - Spanish
+"ET" - Estonian
+"FI" - Finnish
+"FR" - French
+"HU" - Hungarian
+"IT" - Italian
+"JA" - Japanese
+"LT" - Lithuanian
+"LV" - Latvian
+"NL" - Dutch
+"PL" - Polish
+"PT" - Portuguese (all Portuguese varieties mixed)
+"RO" - Romanian
+"RU" - Russian
+"SK" - Slovak
+"SL" - Slovenian
+"SV" - Swedish
+"ZH" - Chinese
+
+### Destination languages
+
+"BG" - Bulgarian
+"CS" - Czech
+"DA" - Danish
+"DE" - German
+"EL" - Greek
+"EN-GB" - English (British)
+"EN-US" - English (American)
+"EN" - English (unspecified variant for backward compatibility; please select EN-GB or EN-US instead)
+"ES" - Spanish
+"ET" - Estonian
+"FI" - Finnish
+"FR" - French
+"HU" - Hungarian
+"IT" - Italian
+"JA" - Japanese
+"LT" - Lithuanian
+"LV" - Latvian
+"NL" - Dutch
+"PL" - Polish
+"PT-PT" - Portuguese (all Portuguese varieties excluding Brazilian Portuguese)
+"PT-BR" - Portuguese (Brazilian)
+"PT" - Portuguese (unspecified variant for backward compatibility; please select PT-PT or PT-BR instead)
+"RO" - Romanian
+"RU" - Russian
+"SK" - Slovak
+"SL" - Slovenian
+"SV" - Swedish
+"ZH" - Chinese
+
 -----
 
 If you are new to Delphi and the Pascal language, take advantage of the Academic (for students, teachers and educational institutions) or Community Edition (free for personal use) versions available from Embarcadero :
