@@ -1,0 +1,223 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'DeepL Proxy Server User Interface'
+  ClientHeight = 515
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object VertScrollBox1: TVertScrollBox
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 515.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 640.000000000000000000
+    Viewport.Height = 515.000000000000000000
+    object zoneTestTranslate: TLayout
+      Align = Top
+      Position.Y = 400.000000000000000000
+      Size.Width = 640.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      object btnTestTranslateFREN: TButton
+        Align = Center
+        Size.Width = 130.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Translate'
+        OnClick = btnTestTranslateFRENClick
+      end
+      object AniIndicator1: TAniIndicator
+        Align = Center
+      end
+    end
+    object zoneMiseAJourInfos: TLayout
+      Align = Top
+      Position.Y = 120.000000000000000000
+      Size.Width = 640.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object btnUpdateFields: TButton
+        Align = Center
+        Size.Width = 130.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Update'
+        OnClick = btnUpdateFieldsClick
+      end
+    end
+    object zoneAppelServeur: TLayout
+      Align = Top
+      Position.Y = 290.000000000000000000
+      Size.Width = 640.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      object btnLaunchServer: TButton
+        Align = Center
+        Size.Width = 130.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Launch Server'
+        OnClick = btnLaunchServerClick
+      end
+    end
+    object lblAPIURL: TLabel
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 180.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.VertAlign = Leading
+      Text = 'URL API'
+      TabOrder = 3
+      object edtURLAPI: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Bottom
+        TabOrder = 4
+        ReadOnly = True
+        Position.Y = 18.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object lblTestTranslateResult: TLabel
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 460.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.VertAlign = Leading
+      Text = 'Result in EN'
+      TabOrder = 8
+      object edtTextEN: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Bottom
+        TabOrder = 4
+        ReadOnly = True
+        Position.Y = 18.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object lblTestTranslateFromFrench: TLabel
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 350.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.VertAlign = Leading
+      Text = 'Text FR to translate'
+      TabOrder = 6
+      object edtTextFR: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Bottom
+        TabOrder = 4
+        Position.Y = 18.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object lblCommandLine: TLabel
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 240.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.VertAlign = Leading
+      Text = 'Command line'
+      TabOrder = 4
+      object edtCommandLine: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Bottom
+        TabOrder = 4
+        ReadOnly = True
+        Position.Y = 18.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object lblAPIKey: TLabel
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 70.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.VertAlign = Leading
+      Text = 'lblAPIKey'
+      TabOrder = 1
+      object edtAPIKey: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Bottom
+        TabOrder = 4
+        Password = True
+        Position.Y = 18.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object lblPort: TLabel
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.VertAlign = Leading
+      Text = 'lblPort'
+      TabOrder = 0
+      object edtServerPort: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Bottom
+        TabOrder = 4
+        Position.Y = 18.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+end
