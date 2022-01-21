@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D0C131D8-52BF-46CF-80A0-9861617B451C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TranslateText\Translate\Translate.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DeepL_RESTDirectAccess">
+        <MSBuild Projects="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj"/>
+    </Target>
+    <Target Name="DeepL_RESTDirectAccess:Clean">
+        <MSBuild Projects="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DeepL_RESTDirectAccess:Make">
+        <MSBuild Projects="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Translate">
+        <MSBuild Projects="TranslateText\Translate\Translate.dproj"/>
+    </Target>
+    <Target Name="Translate:Clean">
+        <MSBuild Projects="TranslateText\Translate\Translate.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Translate:Make">
+        <MSBuild Projects="TranslateText\Translate\Translate.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DeepL_RESTDirectAccess;Translate"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DeepL_RESTDirectAccess:Clean;Translate:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DeepL_RESTDirectAccess:Make;Translate:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
