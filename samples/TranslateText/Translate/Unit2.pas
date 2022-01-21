@@ -14,8 +14,10 @@ type
     Button1: TButton;
     Memo1: TMemo;
     procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Déclarations privées }
+    FAPIKeyFileName: string;
   public
     { Déclarations publiques }
   end;
@@ -34,9 +36,8 @@ begin
   Button1.EnableD := false;
   try
     Memo1.Lines.Add('Translation of "' + Edit1.Text + '" submitted.');
-    DeepLTranslateTextASync
-      (tfile.ReadAllText(tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt')
-      ), 'FR', 'EN', Edit1.Text,
+    DeepLTranslateTextASync(tfile.ReadAllText(FAPIKeyFileName), 'FR', 'EN',
+      Edit1.Text,
       procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
       begin
         Memo1.Lines.Add('Translating "' + OriginalText + '"');
@@ -53,6 +54,14 @@ begin
   except
     Button1.EnableD := true;
   end;
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+  FAPIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
+  if not tfile.Exists(FAPIKeyFileName) then
+    raise exception.Create('File ' + FAPIKeyFileName +
+      ' doesn''t exists. Please create it and put there your DeepL API key.');
 end;
 
 end.
