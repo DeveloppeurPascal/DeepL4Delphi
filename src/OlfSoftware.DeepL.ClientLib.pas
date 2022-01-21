@@ -62,6 +62,16 @@ procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   split_sentences: string = '1'; preserve_formatting: string = '0';
   formality: string = 'default'); overload;
 
+const
+  CDeepLAPIURL_Free = 'https://api-free.deepl.com';
+  CDeepLAPIURL_Pro = 'https://api.deepl.com';
+
+  /// <summary>
+  /// Call to initialize DeepL API URL.
+  /// If you forget to do, you will be on Free API.
+  /// </summary>
+procedure DeepLSetAPIURL(APIURL: string = CDeepLAPIURL_Free);
+
 implementation
 
 // TODO : (add global parameter) choose if result text with error is empty or equal original text
@@ -73,6 +83,9 @@ uses
     , System.Threading
 {$ENDIF}
     ;
+
+var
+  DeepLAPIURL: string;
 
 function DeepLTranslateTextSync(auth_key, source_lang, target_lang,
   text: string; split_sentences: string; preserve_formatting: string;
@@ -102,10 +115,7 @@ begin
       Params.AddPair('split_sentences', split_sentences);
       Params.AddPair('preserve_formatting', preserve_formatting);
       Params.AddPair('formality', formality);
-      APIResponse := APIServer.Post
-        ('https://api.deepl.com/v2/translate', Params);
-// TODO : changement URL si utilisation API gratuite => à paramétrer avec la clé d'API
-// ('https://api-free.deepl.com/v2/translate', Params);
+      APIResponse := APIServer.Post(DeepLAPIURL + '/v2/translate', Params);
     finally
       Params.free;
     end;
@@ -278,5 +288,16 @@ begin
           ErrorText);
     end, split_sentences, preserve_formatting, formality);
 end;
+
+procedure DeepLSetAPIURL(APIURL: string);
+begin
+  if (APIURL.Trim.IsEmpty) then
+    raise exception.Create('Please give the DeepL API URL.');
+  DeepLAPIURL := APIURL;
+end;
+
+initialization
+
+DeepLSetAPIURL(CDeepLAPIURL_Free);
 
 end.
