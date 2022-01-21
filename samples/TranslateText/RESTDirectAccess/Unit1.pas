@@ -23,8 +23,10 @@ type
     RESTResponse1: TRESTResponse;
     procedure Button1Click(Sender: TObject);
     procedure RESTRequest1AfterExecute(Sender: TCustomRESTRequest);
+    procedure FormCreate(Sender: TObject);
   private
     { Déclarations privées }
+    FAPIKeyFileName: string;
   public
     { Déclarations publiques }
   end;
@@ -42,9 +44,23 @@ procedure TForm1.Button1Click(Sender: TObject);
 begin
   Memo1.lines.add('traduction lancée');
   RESTRequest1.Params.ParameterByName('auth_key').Value :=
-    tfile.ReadAllText(tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt'));
+    tfile.ReadAllText(FAPIKeyFileName);
   RESTRequest1.Params.ParameterByName('text').Value := Edit1.Text;
   RESTRequest1.Execute;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  FAPIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
+  if not tfile.Exists(FAPIKeyFileName) then
+    raise exception.Create('File ' + FAPIKeyFileName +
+      ' doesn''t exists. Please create it and put there your DeepL API key.');
+
+  // DeepL Free API
+  RESTClient1.baseurl := 'https://api-free.deepl.com/v2/translate';
+
+  // DeepL Pro API
+  // RESTClient1.baseurl := 'https://api.deepl.com/v2/translate';
 end;
 
 procedure TForm1.RESTRequest1AfterExecute(Sender: TCustomRESTRequest);
