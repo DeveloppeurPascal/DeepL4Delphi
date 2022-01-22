@@ -5,6 +5,12 @@ object WebModule1: TWebModule1
       Name = 'DefaultHandler'
       PathInfo = '/'
       OnAction = WebModule1DefaultHandlerAction
+    end
+    item
+      MethodType = mtPost
+      Name = 'APITranslate'
+      PathInfo = '/v2/translate'
+      OnAction = WebModule1APITranslateAction
     end>
   Height = 230
   Width = 415

@@ -2,7 +2,7 @@ unit uDeepLAPIKey;
 
 interface
 
-const CDeeplAPIKey='toto';
+const CDeeplAPIKey='';
 
 implementation
 

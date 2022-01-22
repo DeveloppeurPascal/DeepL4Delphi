@@ -149,7 +149,6 @@ end;
 
 var
   port: Integer;
-  apikey: string;
   paramvalue: string;
   APIKeyFileName: string;
 
