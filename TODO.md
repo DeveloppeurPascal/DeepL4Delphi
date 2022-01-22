@@ -9,3 +9,8 @@
 * API Monitoring Usage (exemples d'utilisation)
 * API Listing supported Languages (librairie cliente)
 * API Listing supported Languages (exemples d'utilisation)
+* mettre à jour la liste des paramètres pour API Translate (texte)
+
+* tester serveur proxy (WebBroker) sur macOS Intel
+* tester serveur proxy (WebBroker) sur macOS Apple Silicon
+* tester serveur proxy (WebBroker) sur Linux
