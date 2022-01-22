@@ -1,5 +1,8 @@
 unit u_urlOpen;
 
+// This file is part of "librairies" project repository available at
+// https://github.com/DeveloppeurPascal/librairies
+
 interface
 
 /// <summary>Launch URL website on the default browser</summary>
