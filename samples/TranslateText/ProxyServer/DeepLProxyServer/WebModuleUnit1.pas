@@ -59,6 +59,7 @@ begin
   begin
     Response.StatusCode := 200;
     Response.ContentType := 'application/json';
+    Response.CustomHeaders.Add('Access-Control-Allow-Origin=*');
     Response.Content := ListeTraductions[LTK].tojson;
   end
   else
@@ -70,6 +71,7 @@ begin
       // retourner la réponse trouvée dans le cache ou provanent de DeepL
       Response.StatusCode := 200;
       Response.ContentType := 'application/json';
+      Response.CustomHeaders.Add('Access-Control-Allow-Origin=*');
       jso := tjsonobject.create;
       try
         jso.AddPair('translations',
