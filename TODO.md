@@ -15,3 +15,5 @@
 * tester serveur proxy (WebBroker) sur macOS Apple Silicon
 
 * ajouter une configuration "service Windows" sur le serveur proxy de traduction de textes
+
+* tester programme de test proxy depuis smartphones Android (ça ne passe pas avec une IP, voir pourquoi)
