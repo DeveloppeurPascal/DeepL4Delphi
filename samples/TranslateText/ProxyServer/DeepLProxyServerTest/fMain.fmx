@@ -1,0 +1,106 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Test DeepL Proxy Server'
+  ClientHeight = 245
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object lblAPIURL: TLabel
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 10.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.VertAlign = Leading
+    Text = 'URL API'
+    TabOrder = 2
+    object edtURLAPI: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Bottom
+      TabOrder = 4
+      Position.Y = 18.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'http://localhost:8080'
+    end
+  end
+  object lblTestTranslateFromFrench: TLabel
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 70.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.VertAlign = Leading
+    Text = 'Text FR to translate'
+    TabOrder = 5
+    object edtTextFR: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Bottom
+      TabOrder = 4
+      Position.Y = 18.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object zoneTestTranslate: TLayout
+    Align = Top
+    Position.Y = 120.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    object btnTestTranslateFREN: TButton
+      Align = Center
+      Size.Width = 130.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Translate'
+      OnClick = btnTestTranslateFRENClick
+    end
+    object AniIndicator1: TAniIndicator
+      Align = Center
+    end
+  end
+  object lblTestTranslateResult: TLabel
+    Align = Top
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 180.000000000000000000
+    Size.Width = 620.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.VertAlign = Leading
+    Text = 'Result in EN'
+    TabOrder = 7
+    object edtTextEN: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Bottom
+      TabOrder = 4
+      ReadOnly = True
+      Position.Y = 18.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+end
