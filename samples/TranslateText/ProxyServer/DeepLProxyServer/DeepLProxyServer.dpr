@@ -153,32 +153,52 @@ var
   APIKeyFileName: string;
 
 begin
-  if FindCmdLineSwitch('port', paramvalue, True, [clstValueNextParam]) then
-    port := paramvalue.ToInteger
-  else
-    port := 8080;
-
-  if FindCmdLineSwitch('apikey', paramvalue, True, [clstValueNextParam]) then
-    apikey := paramvalue
-  else if not CDeeplAPIKey.isempty then
-    apikey := CDeeplAPIKey
+  if findcmdlineswitch('h') then
+  begin
+    Writeln('DeepLProxyServer');
+    Writeln('(c) 2022 Patrick Prémartin');
+    Writeln('');
+    Writeln('-h => display this help');
+    Writeln('-port number => port number to listen (8080 by default)');
+    Writeln('-apikey YourDeepLAPI => your DeepL API key');
+    Writeln('-apipro => use Pro DeepL API server (default URL is Free DeepL API server)');
+{$IFDEF LINUX}
+    Writeln('-daemon => start the server as Linux daemon');
+{$ENDIF}
+  end
   else
   begin
-    APIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
-    if tfile.Exists(APIKeyFileName) then
-      apikey := tfile.ReadAllText(APIKeyFileName);
-  end;
-  if apikey.isempty then
-    raise exception.Create('DeepL API key needed.');
+    if findcmdlineswitch('port', paramvalue, True, [clstValueNextParam]) then
+      port := paramvalue.ToInteger
+    else
+      port := 8080;
 
-  try
-    if WebRequestHandler <> nil then
-      WebRequestHandler.WebModuleClass := WebModuleClass;
-    RunServer(port);
-  except
-    on E: exception do
-      Writeln(E.ClassName, ': ', E.Message);
-  end
+    if findcmdlineswitch('apikey', paramvalue, True, [clstValueNextParam]) then
+      apikey := paramvalue
+    else if not CDeeplAPIKey.isempty then
+      apikey := CDeeplAPIKey
+    else
+    begin
+      APIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
+      if tfile.Exists(APIKeyFileName) then
+        apikey := tfile.ReadAllText(APIKeyFileName);
+    end;
+    if apikey.isempty then
+      raise exception.Create('DeepL API key needed.');
+
+    if findcmdlineswitch('apipro') then
+      DeepLSetAPIURL(CDeepLAPIURL_Pro)
+    else
+      DeepLSetAPIURL(CDeepLAPIURL_Free);
+
+    try
+      if WebRequestHandler <> nil then
+        WebRequestHandler.WebModuleClass := WebModuleClass;
+      RunServer(port);
+    except
+      on E: exception do
+        Writeln(E.ClassName, ': ', E.Message);
+    end
+  end;
 
 end.
-// TODO : spécifier en ligne de commande si on est en DeepL Free ou DeepL Pro
