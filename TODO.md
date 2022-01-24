@@ -13,4 +13,5 @@
 
 * tester serveur proxy (WebBroker) sur macOS Intel
 * tester serveur proxy (WebBroker) sur macOS Apple Silicon
-* tester serveur proxy (WebBroker) sur Linux
+
+* ajouter une configuration "service Windows" sur le serveur proxy de traduction de textes
