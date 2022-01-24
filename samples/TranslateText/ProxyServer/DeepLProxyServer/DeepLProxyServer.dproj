@@ -195,6 +195,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="Linux64\Debug\DeepLProxyServer" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Linux64">
+                        <RemoteName>DeepLProxyServer</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\DeepLProxyServer.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>DeepLProxyServer.exe</RemoteName>
