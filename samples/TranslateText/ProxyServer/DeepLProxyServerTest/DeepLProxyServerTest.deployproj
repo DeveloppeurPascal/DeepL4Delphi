@@ -6,10 +6,19 @@
     <PropertyGroup>
         <DeviceId Condition="'$(Platform)'=='Android'"/>
         <DeviceId Condition="'$(Platform)'=='Android64'"/>
-        <DeviceId Condition="'$(Platform)'=='iOSDevice64'"/>
+        <DeviceId Condition="'$(Platform)'=='iOSDevice64'">45c8ed61760def4eac76b0e2152d217341810c3c</DeviceId>
     </PropertyGroup>
     <ItemGroup Condition="'$(Platform)'=='OSX64'">
-        <DeployFile Include="OSX64\Debug\DeepLProxyServerTest.info.plist" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="OSX64\Debug\DeepLProxyServerTest.entitlements" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DeepLProxyServerTest.app\..\</RemoteDir>
+            <RemoteName>DeepLProxyServerTest.entitlements</RemoteName>
+            <DeployClass>ProjectOSXEntitlements</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="OSX64\Release\DeepLProxyServerTest.info.plist" Condition="'$(Config)'=='Release'">
             <RemoteDir>DeepLProxyServerTest.app\Contents\</RemoteDir>
             <RemoteName>Info.plist</RemoteName>
             <DeployClass>ProjectOSXInfoPList</DeployClass>
@@ -18,10 +27,38 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="OSX64\Release\DeepLProxyServerTest.dSYM" Condition="'$(Config)'=='Release'">
+            <RemoteDir>DeepLProxyServerTest.app\..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF\</RemoteDir>
+            <RemoteName>DeepLProxyServerTest</RemoteName>
+            <DeployClass>ProjectOSXDebug</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="OSX64\Release\DeepLProxyServerTest" Condition="'$(Config)'=='Release'">
+            <RemoteDir>DeepLProxyServerTest.app\Contents\MacOS\</RemoteDir>
+            <RemoteName>DeepLProxyServerTest</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
+        </DeployFile>
         <DeployFile Include="$(BDS)\bin\delphi_PROJECTICNS.icns" Condition="'$(Config)'=='Debug'">
             <RemoteDir>DeepLProxyServerTest.app\Contents\Resources\</RemoteDir>
             <RemoteName>DeepLProxyServerTest.icns</RemoteName>
             <DeployClass>ProjectOSXResource</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="OSX64\Debug\DeepLProxyServerTest.info.plist" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>DeepLProxyServerTest.app\Contents\</RemoteDir>
+            <RemoteName>Info.plist</RemoteName>
+            <DeployClass>ProjectOSXInfoPList</DeployClass>
             <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -46,7 +83,16 @@
             <Overwrite>True</Overwrite>
             <Required>True</Required>
         </DeployFile>
-        <DeployFile Include="OSX64\Debug\DeepLProxyServerTest.entitlements" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="$(BDS)\bin\delphi_PROJECTICNS.icns" Condition="'$(Config)'=='Release'">
+            <RemoteDir>DeepLProxyServerTest.app\Contents\Resources\</RemoteDir>
+            <RemoteName>DeepLProxyServerTest.icns</RemoteName>
+            <DeployClass>ProjectOSXResource</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="OSX64\Release\DeepLProxyServerTest.entitlements" Condition="'$(Config)'=='Release'">
             <RemoteDir>DeepLProxyServerTest.app\..\</RemoteDir>
             <RemoteName>DeepLProxyServerTest.entitlements</RemoteName>
             <DeployClass>ProjectOSXEntitlements</DeployClass>
@@ -72,6 +118,17 @@
     <ItemGroup Condition="'$(Platform)'=='Android'"/>
     <ItemGroup Condition="'$(Platform)'=='Win64'"/>
     <ItemGroup Condition="'$(Platform)'=='OSXARM64'"/>
-    <ItemGroup Condition="'$(Platform)'=='Linux64'"/>
+    <ItemGroup Condition="'$(Platform)'=='Linux64'">
+        <DeployFile Include="Linux64\Release\DeepLProxyServerTest" Condition="'$(Config)'=='Release'">
+            <RemoteDir>DeepLProxyServerTest\</RemoteDir>
+            <RemoteName>DeepLProxyServerTest</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
+        </DeployFile>
+    </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='iOSDevice64'"/>
 </Project>
