@@ -130,6 +130,16 @@
             <Overwrite>True</Overwrite>
             <Required>True</Required>
         </DeployFile>
+        <DeployFile Include="Linux64\Release\DeepLProxyServer" Condition="'$(Config)'=='Release'">
+            <RemoteDir>DeepLProxyServer\</RemoteDir>
+            <RemoteName>DeepLProxyServer</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
+        </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='iOSDevice64'"/>
 </Project>
