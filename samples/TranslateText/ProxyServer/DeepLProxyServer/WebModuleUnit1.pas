@@ -44,10 +44,12 @@ var
   TexteTraduit: string;
   jso: tjsonobject;
 begin
-//writeln(request.Content);
+  // writeln(request.Content);
 
-//for var i := 0 to request.ContentFields.Count-1 do
-//writeln(          request.ContentFields[i]);
+  // for var i := 0 to request.ContentFields.Count-1 do
+  // writeln(          request.ContentFields[i]);
+
+  Response.CustomHeaders.Add('Access-Control-Allow-Origin=*');
 
   // récupérer les paramètres de la requête
   if (Request.ContentFields.IndexOfName('source_lang') < 0) then
@@ -91,7 +93,7 @@ begin
   begin
     Response.StatusCode := 200;
     Response.ContentType := 'application/json';
-    Response.CustomHeaders.Add('Access-Control-Allow-Origin=*');
+    // Response.CustomHeaders.Add('Access-Control-Allow-Origin=*');
     Response.Content := ListeTraductions[LTK].tojson;
   end
   else
@@ -103,7 +105,7 @@ begin
       // retourner la réponse trouvée dans le cache ou provanent de DeepL
       Response.StatusCode := 200;
       Response.ContentType := 'application/json';
-      Response.CustomHeaders.Add('Access-Control-Allow-Origin=*');
+      // Response.CustomHeaders.Add('Access-Control-Allow-Origin=*');
       jso := tjsonobject.create;
       try
         jso.AddPair('translations',
