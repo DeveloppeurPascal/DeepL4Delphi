@@ -1,5 +1,12 @@
 unit OlfSoftware.DeepL.ClientLib;
 
+// (c) Patrick Prémartin
+//
+// This file is distributed under AGPL license.
+//
+// Get the latest version at
+// https://github.com/DeveloppeurPascal/DeepL-Delphi-client
+
 interface
 
 type
