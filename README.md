@@ -1,82 +1,54 @@
 # Delphi library for using the translation API DeepL
 
+[Cette page en français.](LISEZMOI.md)
+
 DeepL is an online text and document translation tool, also available as software and API from https://www.deepl.com/
 
 This project is a client library in Pascal for Delphi to use this API. Examples of use are also proposed.
 
 To use the API of DeepL you must have a free or paid account available on https://www.deepl.com/pro-api
 
+This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
 
-## Managed languages
+## Supported languages
 
-According to https://www.deepl.com/docs-api/translating-text/ then From / To languages are :
+Check [this page](https://www.deepl.com/docs-api/translating-text/) from the translate API documentation to see the list of supported languages.
 
-### Source languages
+## Install
 
-"BG" - Bulgarian
-"CS" - Czech
-"DA" - Danish
-"DE" - German
-"EL" - Greek
-"EN" - English
-"ES" - Spanish
-"ET" - Estonian
-"FI" - Finnish
-"FR" - French
-"HU" - Hungarian
-"IT" - Italian
-"JA" - Japanese
-"LT" - Lithuanian
-"LV" - Latvian
-"NL" - Dutch
-"PL" - Polish
-"PT" - Portuguese (all Portuguese varieties mixed)
-"RO" - Romanian
-"RU" - Russian
-"SK" - Slovak
-"SL" - Slovenian
-"SV" - Swedish
-"ZH" - Chinese
+To download this project you better should use "git" command but you also can download a ZIP from [its GitHub repository](https://github.com/DeveloppeurPascal/DeepL-Delphi-client).
 
-### Destination languages
+**Warning :** if the project has submodules dependencies they wont be in the ZIP file. You'll have to download them manually.
 
-"BG" - Bulgarian
-"CS" - Czech
-"DA" - Danish
-"DE" - German
-"EL" - Greek
-"EN-GB" - English (British)
-"EN-US" - English (American)
-"EN" - English (unspecified variant for backward compatibility; please select EN-GB or EN-US instead)
-"ES" - Spanish
-"ET" - Estonian
-"FI" - Finnish
-"FR" - French
-"HU" - Hungarian
-"IT" - Italian
-"JA" - Japanese
-"LT" - Lithuanian
-"LV" - Latvian
-"NL" - Dutch
-"PL" - Polish
-"PT-PT" - Portuguese (all Portuguese varieties excluding Brazilian Portuguese)
-"PT-BR" - Portuguese (Brazilian)
-"PT" - Portuguese (unspecified variant for backward compatibility; please select PT-PT or PT-BR instead)
-"RO" - Romanian
-"RU" - Russian
-"SK" - Slovak
-"SL" - Slovenian
-"SV" - Swedish
-"ZH" - Chinese
+## Dependencies
 
------
+This project depends on :
 
-If you are new to Delphi and the Pascal language, take advantage of the Academic (for students, teachers and educational institutions) or Community Edition (free for personal use) versions available from Embarcadero :
-https://www.embarcadero.com/products/delphi
+* none
 
-This free online training will teach you the basics of programming with Pascal and Delphi :
-https://apprendre-delphi.fr/apprendre-la-programmation-avec-delphi/
+## How to ask a new feature, report a bug or a security issue ?
 
-Find reruns of my online conferences / webinars (in french) from the https://developpeur-pascal.fr/p/_6007-webinaires.html page.
+If you want an answer from the project owner the best way to ask for a new feature or report a bug is to go to [the GitHub repository](https://github.com/DeveloppeurPascal/DeepL-Delphi-client) and [open a new issue](https://github.com/DeveloppeurPascal/DeepL-Delphi-client/issues).
 
-Finally, if you prefer reading to video, you can find all the recent books published about Delphi and the Pascal language at https://delphi-books.com/.
+If you found a security issue please don't report it publicly before a patch is available. Explain the case by [sending a private message to the author](https://developpeur-pascal.fr/nous-contacter.php).
+
+You also can fork the repository and contribute by submitting pull requests if you want to help. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
+## Dual licensing model (only for my projects, not for this code repository template)
+
+This project is distributed under [AGPL 3.0 or later](https://choosealicense.com/licenses/agpl-3.0/) license.
+
+If you want to use it or a part of it in your projects but don't want to share the sources or don't want to distribute your project under the same license you can buy the right to use it under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/) or a dedicated license ([contact the author](https://developpeur-pascal.fr/nous-contacter.php) to explain your needs).
+
+## Support the project and its author
+
+If you think this project is useful and want to support it, please make a donation to [its author](https://github.com/DeveloppeurPascal). It will help to maintain the code and binaries.
+
+You can use one of those services :
+
+* [GitHub Sponsors](https://github.com/sponsors/DeveloppeurPascal)
+* [Liberapay](https://liberapay.com/PatrickPremartin)
+* [Patreon](https://www.patreon.com/patrickpremartin)
+* [Paypal](https://www.paypal.com/paypalme/patrickpremartin)
+
+or if you speack french you can [subscribe to Zone Abo](https://zone-abo.fr/nos-abonnements.php) on a monthly or yearly basis and get a lot of resources as videos and articles.
