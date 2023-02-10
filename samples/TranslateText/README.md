@@ -1,6 +1,10 @@
 # Translate Text Samples
 
-## DeepL_RESTDirectAccess
+## ProxyServer
+
+A translation proxy server with sample programes to use it.
+
+## RESTDirectAccess
 
 A how-to sample to use REST components for text translation with DeepL API.
 
