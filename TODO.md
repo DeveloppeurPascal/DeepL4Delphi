@@ -1,4 +1,4 @@
-# TODO list for this project
+# TODO List
 
 * créer un espace de nom pour la librairie cliente (classe contenant les méthodes + quelques valeurs communes)
 * API Translating Documents (librairie cliente)
