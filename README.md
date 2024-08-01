@@ -26,7 +26,7 @@ This code repository contains a project developed in Object Pascal language unde
 Follow my live game development coding sessions on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr/) mostly in French.
 
 * [Sortie de Delphi 10.4.2 Sydney puis codage d'une librairie pour utiliser l'API De traduction de DeepL](https://serialstreameur.fr/live-coding-20210225.php) (in French, 02/25/2021)
-* [Codage en Delphi autour de DeepL et des services web](https://serialstreameur.fr/live-coding-20220121.php) (in French, 01/21-2022)
+* [Codage en Delphi autour de DeepL et des services web](https://serialstreameur.fr/live-coding-20220121.php) (in French, 01/21/2022)
 
 ## Languages supported by the Translation API
 
