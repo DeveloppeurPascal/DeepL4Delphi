@@ -1,6 +1,6 @@
 # Librairie Delphi d'utilisation de l'API de traduction DeepL
 
-[This page in english.](README.md)
+[This page in English.](README.md)
 
 [DeepL](https://www.deepl.com/) est un outil de traduction de textes et documents en ligne, également disponible sous forme de logiciel et d'APIs.
 
