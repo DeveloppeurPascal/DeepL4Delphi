@@ -10,7 +10,25 @@ To use [the API of DeepL](https://www.deepl.com/pro-api) you must have a free or
 
 This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
 
-## Supported languages
+## Talks and conferences
+
+### Online talks
+
+* [Internationaliser les projets VCL / FMX](https://serialstreameur.fr/webinaire-20200625.php) (in French)
+
+### DelphiCon 2023
+
+* [Automatically Translate Your Programs With DeepL API](https://serialstreameur.fr/automatically-translate-your-programs-with-deepl-api.html) (in English)
+* [Traduire automatiquement ses logiciels avec DeepL et WebBroker](https://serialstreameur.fr/traduire-automatiquement-ses-logiciels-avec-deepl-et-webbroker.html) (in French)
+
+### Twitch
+
+Follow my live game development coding sessions on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr/) mostly in French.
+
+* [Sortie de Delphi 10.4.2 Sydney puis codage d'une librairie pour utiliser l'API De traduction de DeepL](https://serialstreameur.fr/live-coding-20210225.php) (in French, 02/25/2021)
+* [Codage en Delphi autour de DeepL et des services web](https://serialstreameur.fr/live-coding-20220121.php) (in French, 01/21-2022)
+
+## Languages supported by the Translation API
 
 Check [this page](https://www.deepl.com/docs-api/translating-text/) from the translate API documentation to see the list of supported languages.
 
