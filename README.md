@@ -1,4 +1,4 @@
-# Delphi library for using the translation API DeepL
+# DeepL API client library for Delphi
 
 [Cette page en français.](LISEZMOI.md)
 

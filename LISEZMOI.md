@@ -1,4 +1,4 @@
-# Librairie Delphi d'utilisation de l'API de traduction DeepL
+# Librairie cliente de l'API DeepL pour Delphi
 
 [This page in English.](README.md)
 
