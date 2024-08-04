@@ -23,7 +23,7 @@ Ce dépôt de code contient un projet développé en langage Pascal Objet sous D
 
 ### Twitch
 
-Suivez les streams de développement de jeux vidéo sur [ma chaîne Twitch](https://www.twitch.tv/patrickpremartin) ou en rediffusion sur [Serial Streameur](https://serialstreameur.fr/) la plupart du temps en français.
+Suivez mes streams de développement de logiciels, jeux vidéo, applications mobiles et sites web sur [ma chaîne Twitch](https://www.twitch.tv/patrickpremartin) ou en rediffusion sur [Serial Streameur](https://serialstreameur.fr/) la plupart du temps en français.
 
 * [Sortie de Delphi 10.4.2 Sydney puis codage d'une librairie pour utiliser l'API De traduction de DeepL](https://serialstreameur.fr/live-coding-20210225.php) (en français, 25/02/2021)
 * [Codage en Delphi autour de DeepL et des services web](https://serialstreameur.fr/live-coding-20220121.php) (en français, 21/01/2022)
