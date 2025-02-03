@@ -1,0 +1,903 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+    <OBJECT type="text/site properties">
+      <param name="Window Styles" value="0x800227">
+    </OBJECT>
+    <UL>      <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="DeepL API client library for Delphi">
+          <param name="Local" value="DeepL-API-client-library-for-Delphi.html">
+          </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="DeepL_RESTDirectAccess">
+          <param name="Local" value="DeepL_RESTDirectAccess.html">
+          </OBJECT>
+          <UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="Unit1">
+                  <param name="Local" value="Unit1.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Classes">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TForm1">
+                                  <param name="Local" value="Unit1.TForm1.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Button1Click">
+                                                  <param name="Local" value="Unit1.TForm1.Button1Click.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="FormCreate">
+                                                  <param name="Local" value="Unit1.TForm1.FormCreate.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="RESTRequest1AfterExecute">
+                                                  <param name="Local" value="Unit1.TForm1.RESTRequest1AfterExecute.html">
+                                                  </OBJECT>
+                                          </UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Fields">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Button1">
+                                                  <param name="Local" value="Unit1.TForm1.Button1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Edit1">
+                                                  <param name="Local" value="Unit1.TForm1.Edit1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Memo1">
+                                                  <param name="Local" value="Unit1.TForm1.Memo1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="RESTClient1">
+                                                  <param name="Local" value="Unit1.TForm1.RESTClient1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="RESTRequest1">
+                                                  <param name="Local" value="Unit1.TForm1.RESTRequest1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="RESTResponse1">
+                                                  <param name="Local" value="Unit1.TForm1.RESTResponse1.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Variables">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="Form1">
+                                  <param name="Local" value="Unit1.Form1.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+          </UL>
+      <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Translate">
+          <param name="Local" value="Translate.html">
+          </OBJECT>
+          <UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="OlfSoftware.DeepL.ClientLib">
+                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Delegates">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedErrorEvent">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorEvent.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedErrorProc">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorProc.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Invoke">
+                                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorProc.Invoke.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedEvent">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedEvent.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedProc">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedProc.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Invoke">
+                                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedProc.Invoke.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Constants">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="CDeepLAPIURL_Free">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.CDeepLAPIURL_Free.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="CDeepLAPIURL_Pro">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.CDeepLAPIURL_Pro.html">
+                                  </OBJECT>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Routines">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLSetAPIURL">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLSetAPIURL.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLTranslateTextASync">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedEvent,TOnTextTranslatedErrorEvent,string,string,string)">
+                                          <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedEvent,TOnTextTranslatedErrorEvent,string,string,string).html">
+                                          </OBJECT>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedProc,TOnTextTranslatedErrorProc,string,string,string)">
+                                          <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedProc,TOnTextTranslatedErrorProc,string,string,string).html">
+                                          </OBJECT>
+                                  </UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLTranslateTextSync">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextSync.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="Unit2">
+                  <param name="Local" value="Unit2.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Classes">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TForm2">
+                                  <param name="Local" value="Unit2.TForm2.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Button1Click">
+                                                  <param name="Local" value="Unit2.TForm2.Button1Click.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="FormCreate">
+                                                  <param name="Local" value="Unit2.TForm2.FormCreate.html">
+                                                  </OBJECT>
+                                          </UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Fields">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Button1">
+                                                  <param name="Local" value="Unit2.TForm2.Button1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Edit1">
+                                                  <param name="Local" value="Unit2.TForm2.Edit1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Memo1">
+                                                  <param name="Local" value="Unit2.TForm2.Memo1.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Variables">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="Form2">
+                                  <param name="Local" value="Unit2.Form2.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+          </UL>
+      <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="DeepLProxyServer">
+          <param name="Local" value="DeepLProxyServer.html">
+          </OBJECT>
+          <UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="OlfSoftware.DeepL.ClientLib">
+                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Delegates">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedErrorEvent">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorEvent.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedErrorProc">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorProc.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Invoke">
+                                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorProc.Invoke.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedEvent">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedEvent.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedProc">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedProc.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Invoke">
+                                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedProc.Invoke.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Constants">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="CDeepLAPIURL_Free">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.CDeepLAPIURL_Free.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="CDeepLAPIURL_Pro">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.CDeepLAPIURL_Pro.html">
+                                  </OBJECT>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Routines">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLSetAPIURL">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLSetAPIURL.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLTranslateTextASync">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedEvent,TOnTextTranslatedErrorEvent,string,string,string)">
+                                          <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedEvent,TOnTextTranslatedErrorEvent,string,string,string).html">
+                                          </OBJECT>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedProc,TOnTextTranslatedErrorProc,string,string,string)">
+                                          <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedProc,TOnTextTranslatedErrorProc,string,string,string).html">
+                                          </OBJECT>
+                                  </UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLTranslateTextSync">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextSync.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="ServerConst1">
+                  <param name="Local" value="ServerConst1.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Constants">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="cArrow">
+                                  <param name="Local" value="ServerConst1.cArrow.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="cCommandExit">
+                                  <param name="Local" value="ServerConst1.cCommandExit.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="cCommandHelp">
+                                  <param name="Local" value="ServerConst1.cCommandHelp.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="cCommandSetPort">
+                                  <param name="Local" value="ServerConst1.cCommandSetPort.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="cCommandStart">
+                                  <param name="Local" value="ServerConst1.cCommandStart.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="cCommandStatus">
+                                  <param name="Local" value="ServerConst1.cCommandStatus.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="cCommandStop">
+                                  <param name="Local" value="ServerConst1.cCommandStop.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sActive">
+                                  <param name="Local" value="ServerConst1.sActive.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sCommands">
+                                  <param name="Local" value="ServerConst1.sCommands.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sIndyVersion">
+                                  <param name="Local" value="ServerConst1.sIndyVersion.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sInvalidCommand">
+                                  <param name="Local" value="ServerConst1.sInvalidCommand.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sPort">
+                                  <param name="Local" value="ServerConst1.sPort.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sPortInUse">
+                                  <param name="Local" value="ServerConst1.sPortInUse.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sPortSet">
+                                  <param name="Local" value="ServerConst1.sPortSet.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sServerNotRunning">
+                                  <param name="Local" value="ServerConst1.sServerNotRunning.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sServerRunning">
+                                  <param name="Local" value="ServerConst1.sServerRunning.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sServerStopped">
+                                  <param name="Local" value="ServerConst1.sServerStopped.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sSessionID">
+                                  <param name="Local" value="ServerConst1.sSessionID.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sStartingServer">
+                                  <param name="Local" value="ServerConst1.sStartingServer.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="sStoppingServer">
+                                  <param name="Local" value="ServerConst1.sStoppingServer.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="WebModuleUnit1">
+                  <param name="Local" value="WebModuleUnit1.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Classes">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TWebModule1">
+                                  <param name="Local" value="WebModuleUnit1.TWebModule1.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="WebModule1APITranslateAction">
+                                                  <param name="Local" value="WebModuleUnit1.TWebModule1.WebModule1APITranslateAction.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="WebModule1DefaultHandlerAction">
+                                                  <param name="Local" value="WebModuleUnit1.TWebModule1.WebModule1DefaultHandlerAction.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Variables">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="WebModuleClass">
+                                  <param name="Local" value="WebModuleUnit1.WebModuleClass.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="apikey">
+                                  <param name="Local" value="WebModuleUnit1.apikey.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="uDeepLAPIKey">
+                  <param name="Local" value="uDeepLAPIKey.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Constants">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="CDeeplAPIKey">
+                                  <param name="Local" value="uDeepLAPIKey.CDeeplAPIKey.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+          </UL>
+      <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="DeepLProxyServerUI">
+          <param name="Local" value="DeepLProxyServerUI.html">
+          </OBJECT>
+          <UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="OlfSoftware.DeepL.ClientLib">
+                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Delegates">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedErrorEvent">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorEvent.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedErrorProc">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorProc.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Invoke">
+                                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorProc.Invoke.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedEvent">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedEvent.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedProc">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedProc.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Invoke">
+                                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedProc.Invoke.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Constants">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="CDeepLAPIURL_Free">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.CDeepLAPIURL_Free.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="CDeepLAPIURL_Pro">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.CDeepLAPIURL_Pro.html">
+                                  </OBJECT>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Routines">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLSetAPIURL">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLSetAPIURL.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLTranslateTextASync">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedEvent,TOnTextTranslatedErrorEvent,string,string,string)">
+                                          <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedEvent,TOnTextTranslatedErrorEvent,string,string,string).html">
+                                          </OBJECT>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedProc,TOnTextTranslatedErrorProc,string,string,string)">
+                                          <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedProc,TOnTextTranslatedErrorProc,string,string,string).html">
+                                          </OBJECT>
+                                  </UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLTranslateTextSync">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextSync.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="fMain">
+                  <param name="Local" value="fMain.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Classes">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TfrmMain">
+                                  <param name="Local" value="fMain.TfrmMain.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="FormCreate">
+                                                  <param name="Local" value="fMain.TfrmMain.FormCreate.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="btnLaunchServerClick">
+                                                  <param name="Local" value="fMain.TfrmMain.btnLaunchServerClick.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="btnTestTranslateFRENClick">
+                                                  <param name="Local" value="fMain.TfrmMain.btnTestTranslateFRENClick.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="btnUpdateFieldsClick">
+                                                  <param name="Local" value="fMain.TfrmMain.btnUpdateFieldsClick.html">
+                                                  </OBJECT>
+                                          </UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Fields">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="AniIndicator1">
+                                                  <param name="Local" value="fMain.TfrmMain.AniIndicator1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="VertScrollBox1">
+                                                  <param name="Local" value="fMain.TfrmMain.VertScrollBox1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="btnLaunchServer">
+                                                  <param name="Local" value="fMain.TfrmMain.btnLaunchServer.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="btnTestTranslateFREN">
+                                                  <param name="Local" value="fMain.TfrmMain.btnTestTranslateFREN.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="btnUpdateFields">
+                                                  <param name="Local" value="fMain.TfrmMain.btnUpdateFields.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="edtAPIKey">
+                                                  <param name="Local" value="fMain.TfrmMain.edtAPIKey.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="edtCommandLine">
+                                                  <param name="Local" value="fMain.TfrmMain.edtCommandLine.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="edtServerPort">
+                                                  <param name="Local" value="fMain.TfrmMain.edtServerPort.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="edtTextEN">
+                                                  <param name="Local" value="fMain.TfrmMain.edtTextEN.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="edtTextFR">
+                                                  <param name="Local" value="fMain.TfrmMain.edtTextFR.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="edtURLAPI">
+                                                  <param name="Local" value="fMain.TfrmMain.edtURLAPI.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="lblAPIKey">
+                                                  <param name="Local" value="fMain.TfrmMain.lblAPIKey.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="lblAPIURL">
+                                                  <param name="Local" value="fMain.TfrmMain.lblAPIURL.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="lblCommandLine">
+                                                  <param name="Local" value="fMain.TfrmMain.lblCommandLine.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="lblPort">
+                                                  <param name="Local" value="fMain.TfrmMain.lblPort.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="lblTestTranslateFromFrench">
+                                                  <param name="Local" value="fMain.TfrmMain.lblTestTranslateFromFrench.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="lblTestTranslateResult">
+                                                  <param name="Local" value="fMain.TfrmMain.lblTestTranslateResult.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="zoneAppelServeur">
+                                                  <param name="Local" value="fMain.TfrmMain.zoneAppelServeur.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="zoneMiseAJourInfos">
+                                                  <param name="Local" value="fMain.TfrmMain.zoneMiseAJourInfos.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="zoneTestTranslate">
+                                                  <param name="Local" value="fMain.TfrmMain.zoneTestTranslate.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Variables">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="frmMain">
+                                  <param name="Local" value="fMain.frmMain.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="u_urlOpen">
+                  <param name="Local" value="u_urlOpen.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Routines">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="url_Open_In_Browser">
+                                  <param name="Local" value="u_urlOpen.url_Open_In_Browser.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+          </UL>
+      <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="DeepLProxyServerTest">
+          <param name="Local" value="DeepLProxyServerTest.html">
+          </OBJECT>
+          <UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="OlfSoftware.DeepL.ClientLib">
+                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Delegates">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedErrorEvent">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorEvent.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedErrorProc">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorProc.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Invoke">
+                                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedErrorProc.Invoke.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedEvent">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedEvent.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TOnTextTranslatedProc">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedProc.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Invoke">
+                                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.TOnTextTranslatedProc.Invoke.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Constants">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="CDeepLAPIURL_Free">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.CDeepLAPIURL_Free.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="CDeepLAPIURL_Pro">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.CDeepLAPIURL_Pro.html">
+                                  </OBJECT>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Routines">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLSetAPIURL">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLSetAPIURL.html">
+                                  </OBJECT>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLTranslateTextASync">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedEvent,TOnTextTranslatedErrorEvent,string,string,string)">
+                                          <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedEvent,TOnTextTranslatedErrorEvent,string,string,string).html">
+                                          </OBJECT>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedProc,TOnTextTranslatedErrorProc,string,string,string)">
+                                          <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextASync(string,string,string,string,TOnTextTranslatedProc,TOnTextTranslatedErrorProc,string,string,string).html">
+                                          </OBJECT>
+                                  </UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="DeepLTranslateTextSync">
+                                  <param name="Local" value="OlfSoftware.DeepL.ClientLib.DeepLTranslateTextSync.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="fMain">
+                  <param name="Local" value="fMain.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Classes">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TfrmMain">
+                                  <param name="Local" value="fMain.TfrmMain.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Methods">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="FormCreate">
+                                                  <param name="Local" value="fMain.TfrmMain.FormCreate.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="btnTestTranslateFRENClick">
+                                                  <param name="Local" value="fMain.TfrmMain.btnTestTranslateFRENClick.html">
+                                                  </OBJECT>
+                                          </UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Fields">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="AniIndicator1">
+                                                  <param name="Local" value="fMain.TfrmMain.AniIndicator1.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="btnTestTranslateFREN">
+                                                  <param name="Local" value="fMain.TfrmMain.btnTestTranslateFREN.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="edtTextEN">
+                                                  <param name="Local" value="fMain.TfrmMain.edtTextEN.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="edtTextFR">
+                                                  <param name="Local" value="fMain.TfrmMain.edtTextFR.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="edtURLAPI">
+                                                  <param name="Local" value="fMain.TfrmMain.edtURLAPI.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="lblAPIURL">
+                                                  <param name="Local" value="fMain.TfrmMain.lblAPIURL.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="lblTestTranslateFromFrench">
+                                                  <param name="Local" value="fMain.TfrmMain.lblTestTranslateFromFrench.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="lblTestTranslateResult">
+                                                  <param name="Local" value="fMain.TfrmMain.lblTestTranslateResult.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="zoneTestTranslate">
+                                                  <param name="Local" value="fMain.TfrmMain.zoneTestTranslate.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Variables">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="frmMain">
+                                  <param name="Local" value="fMain.frmMain.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
+          </UL>
+    </UL>
+</BODY>
+</HTML>
