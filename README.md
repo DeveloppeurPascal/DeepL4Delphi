@@ -36,6 +36,8 @@ Check [this page](https://www.deepl.com/docs-api/translating-text/) from the tra
 
 To download this code repository, we recommend using "git", but you can also download a ZIP file directly from [its GitHub repository](https://github.com/DeveloppeurPascal/DeepL4Delphi).
 
+# Documentation and support
+
 The project's technical documentation, generated with [DocInsight](https://devjetsoftware.com/products/documentation-insight/), is available in the ./docs folder and on [GitHub Pages](https://developpeurpascal.github.io/DeepL4Delphi). Further information and related links are available on [the project website](https://deepl4delphi.developpeur-pascal.fr).
 
 If you need explanations or help in using this project in your own, please [contact me](https://developpeur-pascal.fr/nous-contacter.php). I can either direct you to an online resource, or offer you assistance on a fee-for-service basis. You can also contact me at a conference or an online presentation.
