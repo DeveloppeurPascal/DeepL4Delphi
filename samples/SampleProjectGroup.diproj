@@ -4,7 +4,7 @@
   <Summary>Delphi library and sample projects for using the translation API provided by DeepL.com</Summary>
   <Author>Patrick PREMARTIN</Author>
   <Email>patrick@premartin.fr</Email>
-  <Copyright>(c) 2020-2025 Patrick PREMARTIN</Copyright>
+  <Copyright>(c) 2020-2025 PATRICK PREMARTIN</Copyright>
   <Comment/>
   <Language>2057</Language>
   <Charset>1</Charset>
@@ -20,30 +20,30 @@
   <CompilerVersion>27</CompilerVersion>
   <TargetPlatform>0</TargetPlatform>
   <Sources>
+    <Source>.\TranslateText\ProxyServer\DeepLProxyServer\DeepLProxyServer.dpr</Source>
+    <Source>.\TranslateText\ProxyServer\DeepLProxyServerTest\DeepLProxyServerTest.dpr</Source>
+    <Source>.\TranslateText\ProxyServer\DeeplProxyServerUI\DeepLProxyServerUI.dpr</Source>
     <Source>.\TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dpr</Source>
     <Source>.\TranslateText\Translate\Translate.dpr</Source>
-    <Source>.\TranslateText\ProxyServer\DeepLProxyServer\DeepLProxyServer.dpr</Source>
-    <Source>.\TranslateText\ProxyServer\DeeplProxyServerUI\DeepLProxyServerUI.dpr</Source>
-    <Source>.\TranslateText\ProxyServer\DeepLProxyServerTest\DeepLProxyServerTest.dpr</Source>
   </Sources>
   <Outputs>
     <Output Type="HTML">
       <Active>true</Active>
-      <OutputDirectory>..\docs</OutputDirectory>
+      <OutputDirectory>..\docs\Samples</OutputDirectory>
     </Output>
     <Output Type="CHM">
       <Active>true</Active>
-      <OutputFileName>..\DeepL4Delphi.chm</OutputFileName>
+      <OutputFileName>.\DeepL4Delphi.chm</OutputFileName>
     </Output>
     <Output Type="MSHELP2">
       <Active>false</Active>
-      <OutputFileName>build\docs\mshelp2\TranslateTextSamples.HxS</OutputFileName>
-      <Namespace>TranslateTextSamples</Namespace>
+      <OutputFileName>build\docs\mshelp2\SampleProjectGroup.HxS</OutputFileName>
+      <Namespace>SampleProjectGroup</Namespace>
       <TitleID>library</TitleID>
     </Output>
     <Output Type="HelpAndManual">
       <Active>false</Active>
-      <OutputFileName>build\docs\hm\TranslateTextSamples.hmxp</OutputFileName>
+      <OutputFileName>build\docs\hm\SampleProjectGroup.hmxp</OutputFileName>
     </Output>
   </Outputs>
 </Project>
