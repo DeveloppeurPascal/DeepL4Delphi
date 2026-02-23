@@ -152,9 +152,10 @@ begin
   // TODO : control the content of the parameters to ensure that they are what the API expects
   APIServer := thttpclient.Create;
   try
+    APIServer.ContentType := 'application/x-www-form-urlencoded';
+    APIServer.CustomHeaders['Authorization'] := 'DeepL-Auth-Key ' + auth_key;
     Params := tstringlist.Create;
     try
-      Params.AddPair('auth_key', auth_key);
       Params.AddPair('source_lang', source_lang);
       Params.AddPair('target_lang', target_lang);
       Params.AddPair('text', text);
