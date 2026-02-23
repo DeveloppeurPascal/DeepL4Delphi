@@ -87,7 +87,7 @@ function DeepLTranslateTextSync(auth_key, source_lang, target_lang,
 /// </remarks>
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   text: string; onTexTranslatedProc: TOnTextTranslatedProc;
-  onTexTranslatedErrorProc: TOnTextTranslatedErrorProc = nil;
+  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc = nil;
   split_sentences: string = '1'; preserve_formatting: string = '0';
   formality: string = 'default'); overload;
 
@@ -152,7 +152,7 @@ begin
   // TODO : control the content of the parameters to ensure that they are what the API expects
   APIServer := thttpclient.Create;
   try
-    APIServer.ContentType := 'application/x-www-form-urlencoded';
+    APIServer.CustomHeaders['Content-Type'] := 'application/x-www-form-urlencoded';
     if not auth_key.IsEmpty then
       APIServer.CustomHeaders['Authorization'] := 'DeepL-Auth-Key ' + auth_key;
     Params := tstringlist.Create;
@@ -259,7 +259,7 @@ end;
 
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   text: string; onTexTranslatedProc: TOnTextTranslatedProc;
-  onTexTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences: string;
+  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences: string;
   preserve_formatting: string; formality: string);
 begin
 {$IF CompilerVersion >=32.0}
@@ -279,11 +279,11 @@ begin
             end);
       except
         on e: exception do
-          if assigned(onTexTranslatedErrorProc) then
+          if assigned(onTextTranslatedErrorProc) then
             tthread.queue(nil,
               procedure
               begin
-                onTexTranslatedErrorProc(text, source_lang, target_lang,
+                onTextTranslatedErrorProc(text, source_lang, target_lang,
                   e.Message);
               end);
       end;
@@ -305,11 +305,11 @@ begin
             end);
       except
         on e: exception do
-          if assigned(onTexTranslatedErrorProc) then
+          if assigned(onTextTranslatedErrorProc) then
             tthread.queue(nil,
               procedure
               begin
-                onTexTranslatedErrorProc(text, source_lang, target_lang,
+                onTextTranslatedErrorProc(text, source_lang, target_lang,
                   e.Message);
               end);
       end;
