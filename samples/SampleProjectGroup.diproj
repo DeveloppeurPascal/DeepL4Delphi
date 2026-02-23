@@ -4,13 +4,15 @@
   <Summary>Delphi library and sample projects for using the translation API provided by DeepL.com</Summary>
   <Author>Patrick PREMARTIN</Author>
   <Email>patrick@premartin.fr</Email>
-  <Copyright>(c) 2020-2025 PATRICK PREMARTIN</Copyright>
+  <Copyright>(c) 2020-2026 PATRICK PREMARTIN</Copyright>
   <Comment/>
   <Language>2057</Language>
   <Charset>1</Charset>
+  <Theme>Learn</Theme>
   <HeaderHtml>&lt;%TopicTitle%&gt;</HeaderHtml>
-  <FooterHtml>&lt;a href="https://deepl4delphi.developpeur-pascal.fr" target="_blank"&gt;DeepL API client library for Delphi&lt;/a&gt; (c) 2020-2025 &lt;a href="https://patrick.premartin.fr" target="_blank"&gt;Patrick PREMARTIN&lt;/a&gt; - Powered by &lt;a href="https://devjetsoftware.com/products/documentation-insight/" target="_blank"&gt;DocInsight&lt;/a&gt;</FooterHtml>
+  <FooterHtml>&lt;a href="https://deepl4delphi.developpeur-pascal.fr" target="_blank"&gt;DeepL API client library for Delphi&lt;/a&gt; (c) 2020-2026 &lt;a href="https://patrick.premartin.fr" target="_blank"&gt;Patrick PREMARTIN&lt;/a&gt; - Powered by &lt;a href="https://devjetsoftware.com/products/documentation-insight/" target="_blank"&gt;DocInsight&lt;/a&gt;</FooterHtml>
   <CustomDefines/>
+  <GlobalSearchPaths>false</GlobalSearchPaths>
   <ShowImplementationSection>false</ShowImplementationSection>
   <ShowPrivateMembers>false</ShowPrivateMembers>
   <ShowProtectedMembers>true</ShowProtectedMembers>
@@ -20,11 +22,11 @@
   <CompilerVersion>27</CompilerVersion>
   <TargetPlatform>0</TargetPlatform>
   <Sources>
+    <Source>.\TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dpr</Source>
+    <Source>.\TranslateText\Translate\Translate.dpr</Source>
     <Source>.\TranslateText\ProxyServer\DeepLProxyServer\DeepLProxyServer.dpr</Source>
     <Source>.\TranslateText\ProxyServer\DeepLProxyServerTest\DeepLProxyServerTest.dpr</Source>
     <Source>.\TranslateText\ProxyServer\DeeplProxyServerUI\DeepLProxyServerUI.dpr</Source>
-    <Source>.\TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dpr</Source>
-    <Source>.\TranslateText\Translate\Translate.dpr</Source>
   </Sources>
   <Outputs>
     <Output Type="HTML">
