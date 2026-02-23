@@ -153,7 +153,8 @@ begin
   APIServer := thttpclient.Create;
   try
     APIServer.ContentType := 'application/x-www-form-urlencoded';
-    APIServer.CustomHeaders['Authorization'] := 'DeepL-Auth-Key ' + auth_key;
+    if not auth_key.IsEmpty then
+      APIServer.CustomHeaders['Authorization'] := 'DeepL-Auth-Key ' + auth_key;
     Params := tstringlist.Create;
     try
       Params.AddPair('source_lang', source_lang);
