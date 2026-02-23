@@ -113,7 +113,9 @@ end;
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
-  FAPIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
+  FAPIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.dat');
+  if not tfile.Exists(FAPIKeyFileName) then
+    FAPIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
   if not tfile.Exists(FAPIKeyFileName) then
     raise exception.Create('File ' + FAPIKeyFileName +
       ' doesn''t exists. Please create it and put there your DeepL API key.');
