@@ -67,13 +67,13 @@ type
   TOnTextTranslatedErrorEvent = procedure(OriginalText, SourceLang, TargetLang,
     ErrorText: string) of object;
 
-  /// <summary>
-  /// call DeepL API to translate the text from source_lang to target_lang
-  /// (synchrone - current thread is freezed during process)
-  /// </summary>
-  /// <remarks>
-  /// look at https://www.deepl.com/docs-api/translating-text/response/
-  /// </remarks>
+/// <summary>
+/// call DeepL API to translate the text from source_lang to target_lang
+/// (synchrone - current thread is freezed during process)
+/// </summary>
+/// <remarks>
+/// look at https://www.deepl.com/docs-api/translating-text/response/
+/// </remarks>
 function DeepLTranslateTextSync(auth_key, source_lang, target_lang,
   text: string; split_sentences: string = '1';
   preserve_formatting: string = '0'; formality: string = 'default'): string;
@@ -108,10 +108,10 @@ const
   CDeepLAPIURL_Free = 'https://api-free.deepl.com';
   CDeepLAPIURL_Pro = 'https://api.deepl.com';
 
-  /// <summary>
-  /// Call to initialize DeepL API URL.
-  /// If you forget to do, you will be on Free API.
-  /// </summary>
+/// <summary>
+/// Call to initialize DeepL API URL.
+/// If you forget to do, you will be on Free API.
+/// </summary>
 procedure DeepLSetAPIURL(APIURL: string = CDeepLAPIURL_Free);
 
 implementation
@@ -119,12 +119,16 @@ implementation
 // TODO : (add global parameter) choose if result text with error is empty or equal original text
 
 uses
-  System.Net.HttpClient, System.Classes, System.SysUtils, System.JSON,
+  System.Net.HttpClient,
+  System.Classes,
+  System.SysUtils,
+  System.JSON,
   System.Generics.Collections
 {$IF CompilerVersion >=32.0}
-    , System.Threading
+  ,
+  System.Threading
 {$ENDIF}
-    ;
+  ;
 
 var
   DeepLAPIURL: string;
@@ -234,7 +238,7 @@ begin
           begin // Too many requests. Please wait and resend your request.
             // TODO : change in needed
             raise exception.Create
-              ('Too many requests. Please wait and resend your request.');
+            ('Too many requests. Please wait and resend your request.');
           end;
       else
         // TODO : request error, see status code from https://www.deepl.com/docs-api/accessing-the-api/error-handling/
@@ -313,8 +317,8 @@ end;
 
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   text: string; onTexTranslatedEvent: TOnTextTranslatedEvent;
-onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences: string;
-preserve_formatting: string; formality: string); overload;
+  onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences: string;
+  preserve_formatting: string; formality: string); overload;
 begin
   DeepLTranslateTextASync(auth_key, source_lang, target_lang, text,
     procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
@@ -340,6 +344,7 @@ end;
 
 initialization
 
-DeepLSetAPIURL(CDeepLAPIURL_Free);
+  DeepLSetAPIURL(CDeepLAPIURL_Free);
 
 end.
+

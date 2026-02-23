@@ -45,10 +45,22 @@ unit Unit2;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Memo.Types,
-  FMX.ScrollBox, FMX.Memo, FMX.StdCtrls, FMX.Controls.Presentation, FMX.Edit;
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  FMX.Memo.Types,
+  FMX.ScrollBox,
+  FMX.Memo,
+  FMX.StdCtrls,
+  FMX.Controls.Presentation,
+  FMX.Edit;
 
 type
   TForm2 = class(TForm)
@@ -58,10 +70,8 @@ type
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-    { Déclarations privées }
     FAPIKeyFileName: string;
   public
-    { Déclarations publiques }
   end;
 
 var
@@ -71,7 +81,10 @@ implementation
 
 {$R *.fmx}
 
-uses OlfSoftware.DeepL.ClientLib, System.IOUtils, System.Threading;
+uses
+  OlfSoftware.DeepL.ClientLib,
+  System.IOUtils,
+  System.Threading;
 
 procedure TForm2.Button1Click(Sender: TObject);
 begin
@@ -107,3 +120,4 @@ begin
 end;
 
 end.
+

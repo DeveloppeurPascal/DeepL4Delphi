@@ -45,7 +45,9 @@ unit WebModuleUnit1;
 interface
 
 uses
-  System.SysUtils, System.Classes, Web.HTTPApp;
+  System.SysUtils,
+  System.Classes,
+  Web.HTTPApp;
 
 type
   TWebModule1 = class(TWebModule)
@@ -54,9 +56,7 @@ type
     procedure WebModule1APITranslateAction(Sender: TObject;
       Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
   private
-    { Déclarations privées }
   public
-    { Déclarations publiques }
   end;
 
 var
@@ -67,7 +67,10 @@ implementation
 
 {%CLASSGROUP 'System.Classes.TPersistent'}
 
-uses OlfSoftware.DeepL.ClientLib, System.json, System.Generics.Collections;
+uses
+  OlfSoftware.DeepL.ClientLib,
+  System.json,
+  System.Generics.Collections;
 
 {$R *.dfm}
 
@@ -81,7 +84,7 @@ procedure TWebModule1.WebModule1APITranslateAction(Sender: TObject;
   Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
 var
   SourceLang, TargetLang, Texte, SplitSentences, PreserveFormatting,
-    Formality: string;
+  Formality: string;
   LTK: string;
   TexteTraduit: string;
   jso: tjsonobject;
@@ -129,7 +132,7 @@ begin
     Formality := Request.ContentFields.Values['formality'];
   // regarder si on a déjà fait cette demande
   LTK := SourceLang + TargetLang + Texte + SplitSentences + PreserveFormatting +
-    Formality;
+  Formality;
   // si oui, envoyer la réponse de départ
   if ListeTraductions.ContainsKey(LTK) then
   begin
@@ -176,7 +179,7 @@ procedure TWebModule1.WebModule1DefaultHandlerAction(Sender: TObject;
   Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
 begin
   Response.Content := '<html>' + '<head><title>Proxy DeepL</title></head>' +
-    '<body>Proxy DeepL is waiting for your messages.</body>' + '</html>';
+  '<body>Proxy DeepL is waiting for your messages.</body>' + '</html>';
 end;
 
 initialization
@@ -184,11 +187,12 @@ initialization
 {$IFDEF DEBUG}
   ReportMemoryLeaksOnShutdown := true;
 {$ENDIF}
-apikey := '';
-ListeTraductions := TListeTraductions.create;
+  apikey := '';
+  ListeTraductions := TListeTraductions.create;
 
 finalization
 
-ListeTraductions.free;
+  ListeTraductions.free;
 
 end.
+

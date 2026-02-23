@@ -44,8 +44,10 @@ unit uDeepLAPIKey;
 
 interface
 
-const CDeeplAPIKey='';
+const
+  CDeeplAPIKey = '';
 
 implementation
 
 end.
+

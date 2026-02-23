@@ -45,10 +45,20 @@ unit fMain;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Edit,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts;
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  FMX.Edit,
+  FMX.Controls.Presentation,
+  FMX.StdCtrls,
+  FMX.Layouts;
 
 type
   TfrmMain = class(TForm)
@@ -64,9 +74,7 @@ type
     procedure btnTestTranslateFRENClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-    { Déclarations privées }
   public
-    { Déclarations publiques }
   end;
 
 var
@@ -76,7 +84,8 @@ implementation
 
 {$R *.fmx}
 
-uses OlfSoftware.DeepL.ClientLib;
+uses
+  OlfSoftware.DeepL.ClientLib;
 
 procedure TfrmMain.btnTestTranslateFRENClick(Sender: TObject);
 begin
@@ -121,7 +130,8 @@ procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   edtURLAPI.Text := 'http://localhost:8080';
   edtTextFR.Text :=
-    'Test du serveur proxy de traduction français vers anglais (ou autres langues).';
+  'Test du serveur proxy de traduction français vers anglais (ou autres langues).';
 end;
 
 end.
+

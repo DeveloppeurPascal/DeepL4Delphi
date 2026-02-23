@@ -45,10 +45,20 @@ unit fMain;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation;
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  FMX.Layouts,
+  FMX.StdCtrls,
+  FMX.Edit,
+  FMX.Controls.Presentation;
 
 type
   TfrmMain = class(TForm)
@@ -77,10 +87,8 @@ type
     procedure btnUpdateFieldsClick(Sender: TObject);
     procedure btnLaunchServerClick(Sender: TObject);
   private
-    { Déclarations privées }
     function getCommandLine(APIKeyVisible: boolean = false): string;
   public
-    { Déclarations publiques }
   end;
 
 var
@@ -90,7 +98,10 @@ implementation
 
 {$R *.fmx}
 
-uses OlfSoftware.DeepL.ClientLib, System.IOUtils, u_urlOpen;
+uses
+  OlfSoftware.DeepL.ClientLib,
+  System.IOUtils,
+  u_urlOpen;
 
 procedure TfrmMain.btnLaunchServerClick(Sender: TObject);
 begin
@@ -168,3 +179,4 @@ begin
 end;
 
 end.
+

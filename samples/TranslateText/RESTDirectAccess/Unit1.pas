@@ -45,14 +45,36 @@ unit Unit1;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, REST.Types,
-  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
-  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, FMX.StdCtrls,
-  FMX.Controls.Presentation, FMX.Edit, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, REST.Response.Adapter, REST.Client, Data.Bind.Components,
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  REST.Types,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option,
+  FireDAC.Stan.Param,
+  FireDAC.Stan.Error,
+  FireDAC.DatS,
+  FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf,
+  FMX.Memo.Types,
+  FMX.ScrollBox,
+  FMX.Memo,
+  FMX.StdCtrls,
+  FMX.Controls.Presentation,
+  FMX.Edit,
+  Data.DB,
+  FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client,
+  REST.Response.Adapter,
+  REST.Client,
+  Data.Bind.Components,
   Data.Bind.ObjectScope;
 
 type
@@ -67,10 +89,8 @@ type
     procedure RESTRequest1AfterExecute(Sender: TCustomRESTRequest);
     procedure FormCreate(Sender: TObject);
   private
-    { Déclarations privées }
     FAPIKeyFileName: string;
   public
-    { Déclarations publiques }
   end;
 
 var
@@ -80,13 +100,15 @@ implementation
 
 {$R *.fmx}
 
-uses System.IOUtils, System.JSON;
+uses
+  System.IOUtils,
+  System.JSON;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
   Memo1.lines.add('traduction lancée');
   RESTRequest1.Params.ParameterByName('auth_key').Value :=
-    tfile.ReadAllText(FAPIKeyFileName);
+  tfile.ReadAllText(FAPIKeyFileName);
   RESTRequest1.Params.ParameterByName('text').Value := Edit1.Text;
   RESTRequest1.Execute;
 end;
@@ -125,3 +147,4 @@ begin
 end;
 
 end.
+
