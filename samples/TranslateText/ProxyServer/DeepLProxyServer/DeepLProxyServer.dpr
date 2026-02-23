@@ -45,7 +45,11 @@ program DeepLProxyServer;
 
 uses
 {$IFDEF LINUX}
-  Posix.Stdlib, Posix.SysStat, Posix.SysTypes, Posix.Unistd, Posix.Signal,
+  Posix.Stdlib,
+  Posix.SysStat,
+  Posix.SysTypes,
+  Posix.Unistd,
+  Posix.Signal,
   Posix.Fcntl,
 {$ENDIF}
   System.SysUtils,
@@ -58,7 +62,7 @@ uses
   WebModuleUnit1 in 'WebModuleUnit1.pas' {WebModule1: TWebModule} ,
   ServerConst1 in 'ServerConst1.pas',
   OlfSoftware.DeepL.ClientLib
-    in '..\..\..\..\src\OlfSoftware.DeepL.ClientLib.pas',
+  in '..\..\..\..\src\OlfSoftware.DeepL.ClientLib.pas',
   System.IOUtils,
   uDeepLAPIKey in 'uDeepLAPIKey.pas';
 
@@ -85,7 +89,7 @@ begin
     Result := 0;
 end;
 
-procedure SetPort(const AServer: TIdHTTPWebBrokerBridge; APort: String);
+procedure SetPort(const AServer: TIdHTTPWebBrokerBridge; APort: string);
 begin
   if not AServer.Active then
   begin
@@ -270,7 +274,9 @@ begin
       apikey := CDeeplAPIKey
     else
     begin
-      APIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
+      APIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.dat');
+      if not tfile.Exists(APIKeyFileName) then
+        APIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
       if tfile.Exists(APIKeyFileName) then
         apikey := tfile.ReadAllText(APIKeyFileName);
     end;
@@ -282,10 +288,10 @@ begin
     else
       DeepLSetAPIURL(CDeepLAPIURL_Free);
 {$IFDEF LINUX}
-// Want to understand how to create a Linux daemon ?
-// Look at Paolo Rossi blog :
-// https://blog.paolorossi.net/building-a-real-linux-daemon-with-delphi-part-1/
-// https://blog.paolorossi.net/building-a-real-linux-daemon-with-delphi-part-2/
+    // Want to understand how to create a Linux daemon ?
+    // Look at Paolo Rossi blog :
+    // https://blog.paolorossi.net/building-a-real-linux-daemon-with-delphi-part-1/
+    // https://blog.paolorossi.net/building-a-real-linux-daemon-with-delphi-part-2/
     if findcmdlineswitch('daemon') then
     begin
       // openlog(nil, LOG_PID or LOG_NDELAY, LOG_DAEMON);
@@ -301,7 +307,7 @@ begin
 
           if setsid() < 0 then
             raise exception.Create
-              ('Impossible to create an independent session');
+            ('Impossible to create an independent session');
 
           Signal(SIGCHLD, TSignalHandler(SIG_IGN));
           Signal(SIGHUP, HandleSignals);
@@ -358,3 +364,4 @@ begin
   end;
 
 end.
+
