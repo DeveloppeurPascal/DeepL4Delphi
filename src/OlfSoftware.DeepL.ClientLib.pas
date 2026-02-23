@@ -261,6 +261,8 @@ procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   text: string; onTexTranslatedProc: TOnTextTranslatedProc;
   onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences: string;
   preserve_formatting: string; formality: string);
+var
+  ErrorMessage: string;
 begin
 {$IF CompilerVersion >=32.0}
   ttask.run(
@@ -279,13 +281,16 @@ begin
             end);
       except
         on e: exception do
+        begin
+          ErrorMessage := e.Message;
           if assigned(onTextTranslatedErrorProc) then
             tthread.queue(nil,
               procedure
               begin
                 onTextTranslatedErrorProc(text, source_lang, target_lang,
-                  e.Message);
+                  ErrorMessage);
               end);
+        end;
       end;
     end);
 {$ELSE}
@@ -305,13 +310,16 @@ begin
             end);
       except
         on e: exception do
+        begin
+          ErrorMessage := e.Message;
           if assigned(onTextTranslatedErrorProc) then
             tthread.queue(nil,
               procedure
               begin
                 onTextTranslatedErrorProc(text, source_lang, target_lang,
-                  e.Message);
+                  ErrorMessage);
               end);
+        end;
       end;
     end).Start;
 {$ENDIF}
