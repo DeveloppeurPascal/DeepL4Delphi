@@ -3,6 +3,12 @@
         <ProjectGuid>{2B95167A-87B8-47CD-88E4-23AC0D0D67A7}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TranslateText\Translate\Translate.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="TranslateText\ProxyServer\DeepLProxyServer\DeepLProxyServer.dproj">
             <Dependencies/>
         </Projects>
@@ -10,12 +16,6 @@
             <Dependencies/>
         </Projects>
         <Projects Include="TranslateText\ProxyServer\DeeplProxyServerUI\DeepLProxyServerUI.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="TranslateText\Translate\Translate.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -26,6 +26,24 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="DeepL_RESTDirectAccess">
+        <MSBuild Projects="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj"/>
+    </Target>
+    <Target Name="DeepL_RESTDirectAccess:Clean">
+        <MSBuild Projects="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DeepL_RESTDirectAccess:Make">
+        <MSBuild Projects="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Translate">
+        <MSBuild Projects="TranslateText\Translate\Translate.dproj"/>
+    </Target>
+    <Target Name="Translate:Clean">
+        <MSBuild Projects="TranslateText\Translate\Translate.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Translate:Make">
+        <MSBuild Projects="TranslateText\Translate\Translate.dproj" Targets="Make"/>
+    </Target>
     <Target Name="DeepLProxyServer">
         <MSBuild Projects="TranslateText\ProxyServer\DeepLProxyServer\DeepLProxyServer.dproj"/>
     </Target>
@@ -53,32 +71,14 @@
     <Target Name="DeepLProxyServerUI:Make">
         <MSBuild Projects="TranslateText\ProxyServer\DeeplProxyServerUI\DeepLProxyServerUI.dproj" Targets="Make"/>
     </Target>
-    <Target Name="DeepL_RESTDirectAccess">
-        <MSBuild Projects="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj"/>
-    </Target>
-    <Target Name="DeepL_RESTDirectAccess:Clean">
-        <MSBuild Projects="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="DeepL_RESTDirectAccess:Make">
-        <MSBuild Projects="TranslateText\RESTDirectAccess\DeepL_RESTDirectAccess.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="Translate">
-        <MSBuild Projects="TranslateText\Translate\Translate.dproj"/>
-    </Target>
-    <Target Name="Translate:Clean">
-        <MSBuild Projects="TranslateText\Translate\Translate.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Translate:Make">
-        <MSBuild Projects="TranslateText\Translate\Translate.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="DeepLProxyServer;DeepLProxyServerTest;DeepLProxyServerUI;DeepL_RESTDirectAccess;Translate"/>
+        <CallTarget Targets="DeepL_RESTDirectAccess;Translate;DeepLProxyServer;DeepLProxyServerTest;DeepLProxyServerUI"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="DeepLProxyServer:Clean;DeepLProxyServerTest:Clean;DeepLProxyServerUI:Clean;DeepL_RESTDirectAccess:Clean;Translate:Clean"/>
+        <CallTarget Targets="DeepL_RESTDirectAccess:Clean;Translate:Clean;DeepLProxyServer:Clean;DeepLProxyServerTest:Clean;DeepLProxyServerUI:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="DeepLProxyServer:Make;DeepLProxyServerTest:Make;DeepLProxyServerUI:Make;DeepL_RESTDirectAccess:Make;Translate:Make"/>
+        <CallTarget Targets="DeepL_RESTDirectAccess:Make;Translate:Make;DeepLProxyServer:Make;DeepLProxyServerTest:Make;DeepLProxyServerUI:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
