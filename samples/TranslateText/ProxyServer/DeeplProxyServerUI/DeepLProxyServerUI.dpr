@@ -47,7 +47,7 @@ uses
   FMX.Forms,
   fMain in 'fMain.pas' {frmMain},
   OlfSoftware.DeepL.ClientLib in '..\..\..\..\src\OlfSoftware.DeepL.ClientLib.pas',
-  u_urlOpen in 'u_urlOpen.pas';
+  u_urlOpen in '..\..\..\..\lib-externes\librairies\src\u_urlOpen.pas';
 
 {$R *.res}
 
