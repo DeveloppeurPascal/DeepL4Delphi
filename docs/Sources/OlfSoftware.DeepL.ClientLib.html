@@ -15,13 +15,15 @@
 <div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section">Classes, Interfaces, Objects and Records</div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
- ***************************************************************************
+C2PP ***************************************************************************
 
-<p>DeepL API client library for Delphi
+<p>DeepL API client library for Delphi Copyright (c) 2020-2026 Patrick PREMARTIN
 
-<p>Copyright 2020-2024 Patrick Prémartin under AGPL 3.0 license.
+<p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+<p>You should have received a copy of the GNU Affero General Public License along with this program. If not, see &lt;<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>&gt;.
 
 <p>***************************************************************************
 
@@ -39,7 +41,7 @@
 
 <p>Project site : <a href="https://github.com/DeveloppeurPascal/DeepL4Delphi">https://github.com/DeveloppeurPascal/DeepL4Delphi</a>
 
-<p>*************************************************************************** File last update : 04/08/2024 07:56:16 Signature : dc624178028740235135fa88f275713da3713fcb *************************************************************************** </p>
+<p>*************************************************************************** File last update : 2026-02-23T19:54:23.362+01:00 Signature : 7dc257b8f7c8b2b37eb895c0df1fe67d953b1b9f ***************************************************************************</p>
 <span id="PasDoc-Uses"></span><h2 class="overview">Overview</h2>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
@@ -47,7 +49,7 @@
 <td class="itemcode"><code>function <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextSync">DeepLTranslateTextSync</a></strong>(auth_key, source_lang, target_lang, text: string; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'): string;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>procedure <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextASync">DeepLTranslateTextASync</a></strong>(auth_key, source_lang, target_lang, text: string; onTexTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTexTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextASync">DeepLTranslateTextASync</a></strong>(auth_key, source_lang, target_lang, text: string; onTexTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload;</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code>procedure <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextASync">DeepLTranslateTextASync</a></strong>(auth_key, source_lang, target_lang, text: string; onTexTranslatedEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedEvent">TOnTextTranslatedEvent</a>; onTexTranslatedErrorEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorEvent">TOnTextTranslatedErrorEvent</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload;</code></td>
@@ -99,7 +101,7 @@
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="DeepLTranslateTextASync"></span><code>procedure <strong>DeepLTranslateTextASync</strong>(auth_key, source_lang, target_lang, text: string; onTexTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTexTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload;</code></td>
+<td class="itemcode"><span id="DeepLTranslateTextASync"></span><code>procedure <strong>DeepLTranslateTextASync</strong>(auth_key, source_lang, target_lang, text: string; onTexTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -186,7 +188,7 @@
 <tr><td colspan="1">
 &nbsp;</td></tr>
 </table>
-<a href="https://deepl4delphi.developpeur-pascal.fr" target="_blank">DeepL API client library for Delphi</a> (c) 2020-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<a href="https://deepl4delphi.developpeur-pascal.fr" target="_blank">DeepL API client library for Delphi</a> (c) 2020-2026 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>
 </div></div></body></html>
