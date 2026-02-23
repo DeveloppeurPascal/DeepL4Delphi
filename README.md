@@ -23,10 +23,7 @@ This code repository contains a project developed in Object Pascal language unde
 
 ### Twitch
 
-Follow my development streams of software, video games, mobile applications and websites on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr/) mostly in French.
-
-* [Sortie de Delphi 10.4.2 Sydney puis codage d'une librairie pour utiliser l'API De traduction de DeepL](https://serialstreameur.fr/live-coding-20210225.php) (in French, 02/25/2021)
-* [Codage en Delphi autour de DeepL et des services web](https://serialstreameur.fr/live-coding-20220121.php) (in French, 01/21/2022)
+Follow my development streams of software, video games, mobile applications and websites on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr) mostly in French.
 
 ## Languages supported by the Translation API
 
@@ -36,15 +33,19 @@ Check [this page](https://www.deepl.com/docs-api/translating-text/) from the tra
 
 To download this code repository, we recommend using "git", but you can also download a ZIP file directly from [its GitHub repository](https://github.com/DeveloppeurPascal/DeepL4Delphi).
 
+This project uses dependencies in the form of sub-modules. They will be absent from the ZIP file. You'll have to download them by hand.
+
+* [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) must be installed in the ./lib-externes/librairies subfolder.
+
 ## Documentation and support
 
 I use comments in [XMLDOC](https://docwiki.embarcadero.com/RADStudio/en/XML_Documentation_Comments) format in Delphi to document my projects. They are recognized by Help Insight, which offers real-time input help in the code editor.
 
 I regularly use the [DocInsight](https://devjetsoftware.com/products/documentation-insight/) tool to enter them and check their formatting.
 
-Documentation is exported in HTML by [DocInsight](https://devjetsoftware.com/products/documentation-insight/) or [PasDoc](https://pasdoc.github.io) to the /docs folder of the repository. You can also [access it online](https://developpeurpascal.github.io/DeepL4Delphi) through the hosting offered by GitHub Pages.
+Documentation is exported in HTML by [DocInsight](https://devjetsoftware.com/products/documentation-insight/) or [PasDoc](https://pasdoc.github.io) to the /docs folder of the repository. You can also [access it online](https://deepl4delphi.developpeur-pascal.fr/dev-corner.html) on the project website.
 
-Further information (tutorials, articles, videos, FAQ, talks and links) can be found on [the project website](https://deepl4delphi.developpeur-pascal.fr/) or [the project devlog](https://developpeur-pascal.fr/deepl-api-for-delphi.html).
+Further information (tutorials, articles, videos, FAQ, talks and links) can be found on [the project website](https://deepl4delphi.developpeur-pascal.fr) or [the project devlog](https://developpeur-pascal.fr/deepl-api-for-delphi.html).
 
 If you need explanations or help in understanding or using parts of this project in yours, please [contact me](https://developpeur-pascal.fr/nous-contacter.php). I can either direct you to an online resource, or offer you assistance in the form of a paid or free service, depending on the case. You can also contact me at a conference or during an online presentation.
 
@@ -83,16 +84,15 @@ You also can fork the repository and contribute by submitting pull requests if y
 
 ## Support the project and its author
 
-If you think this project is useful and want to support it, please make a donation to [its author](https://github.com/DeveloppeurPascal). It will help to maintain the code and binaries.
+If you think this project is useful and want to support it, please make a donation to [its author](https://github.com/DeveloppeurPascal). It will help to maintain this project and all others.
 
 You can use one of those services :
 
-* [GitHub Sponsors](https://github.com/sponsors/DeveloppeurPascal)
-* Ko-fi [in French](https://ko-fi.com/patrick_premartin_fr) or [in English](https://ko-fi.com/patrick_premartin_en)
 * [Patreon](https://www.patreon.com/patrickpremartin)
+* [GitHub Sponsors](https://github.com/sponsors/DeveloppeurPascal)
 * [Liberapay](https://liberapay.com/PatrickPremartin)
-* [Paypal](https://www.paypal.com/paypalme/patrickpremartin)
+* Ko-fi [in French](https://ko-fi.com/patrick_premartin_fr) or [in English](https://ko-fi.com/patrick_premartin_en)
 
-You can buy [my softwares](https://lic.olfsoftware.fr/products.php?lng=en), [my video games](https://lic.gamolf.fr/products.php?lng=en) or [a developer license for my libraries](https://lic.developpeur-pascal.fr/products.php?lng=en) if you use them in your projects.
+You can buy an end user license for [my softwares](https://lic.olfsoftware.fr/products.php?lng=en) and [my video games](https://lic.gamolf.fr/products.php?lng=en) or [a developer license for my libraries](https://lic.developpeur-pascal.fr/products.php?lng=en) if you use them in your projects.
 
-If you speak French [subscribe to Zone Abo](https://zone-abo.fr/nos-abonnements.php) to access my complete online archive (articles, videos, training videos, ebooks).
+I'm also available as a service provider to help you use this or other projects, such as software development, mobile applications and websites. [Contact me](https://vasur.fr/about) to discuss.
