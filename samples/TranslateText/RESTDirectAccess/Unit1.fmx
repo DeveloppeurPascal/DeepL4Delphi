@@ -47,20 +47,17 @@ object Form1: TForm1
     Viewport.Height = 424.000000000000000000
   end
   object RESTClient1: TRESTClient
-    BaseURL = 'https://api.deepl.com/v2/translate'
+    BaseURL = 'https://api-free.deepl.com/v2/translate'
     Params = <>
-    Left = 320
-    Top = 152
+    SynchronizedEvents = False
+    Left = 280
+    Top = 168
   end
   object RESTRequest1: TRESTRequest
     AssignedValues = [rvConnectTimeout, rvReadTimeout]
     Client = RESTClient1
     Method = rmPOST
     Params = <
-      item
-        Name = 'auth_key'
-        Value = 'aa6d167b-5d54-86e5-6f9c-cfe3760051a1'
-      end
       item
         Name = 'source_lang'
         Value = 'FR'
@@ -84,15 +81,21 @@ object Form1: TForm1
       item
         Name = 'formality'
         Value = 'default'
+      end
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Authorization'
+        Options = [poDoNotEncode]
+        Value = 'DeepL-Auth-Key XXXXX'
       end>
     Response = RESTResponse1
     OnAfterExecute = RESTRequest1AfterExecute
-    Left = 160
-    Top = 160
+    SynchronizedEvents = False
+    Left = 368
+    Top = 128
   end
   object RESTResponse1: TRESTResponse
-    RootElement = 'translations'
-    Left = 456
-    Top = 200
+    Left = 384
+    Top = 240
   end
 end

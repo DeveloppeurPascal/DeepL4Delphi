@@ -107,15 +107,16 @@ uses
 procedure TForm1.Button1Click(Sender: TObject);
 begin
   Memo1.lines.add('traduction lancée');
-  RESTRequest1.Params.ParameterByName('auth_key').Value :=
-  tfile.ReadAllText(FAPIKeyFileName);
+  RESTRequest1.Params.ParameterByName('Authorization').Value := 'DeepL-Auth-Key ' + tfile.ReadAllText(FAPIKeyFileName);
   RESTRequest1.Params.ParameterByName('text').Value := Edit1.Text;
   RESTRequest1.Execute;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  FAPIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
+  FAPIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.dat');
+  if not tfile.Exists(FAPIKeyFileName) then
+    FAPIKeyFileName := tpath.combine(tpath.GetDocumentsPath, 'cle-deepl.txt');
   if not tfile.Exists(FAPIKeyFileName) then
     raise exception.Create('File ' + FAPIKeyFileName +
       ' doesn''t exists. Please create it and put there your DeepL API key.');
