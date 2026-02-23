@@ -124,11 +124,24 @@ uses
   System.SysUtils,
   System.JSON,
   System.Generics.Collections
-{$IF CompilerVersion >=32.0}
+{$IF CompilerVersion >= 32.0} // from 10.2 Tokyo
   ,
   System.Threading
 {$ENDIF}
   ;
+
+{$IF CompilerVersion < 31.0} // before 10.1 Berlin
+// cf https://github.com/DeveloppeurPascal/DeepL4Delphi/issues/6
+type
+  TStringListHelper = class helper for TStringList
+    function AddPair(const AName, AValue: string): integer;
+  end;
+
+function TStringListHelper.AddPair(const AName, AValue: string): integer;
+begin
+  Result := Add(AName + NameValueSeparator + AValue);
+end;
+{$ENDIF}
 
 var
   DeepLAPIURL: string;
@@ -188,7 +201,12 @@ begin
                         if (JSA.Count = 1) then
                         begin
                           try
+{$IF CompilerVersion < 31.0} // before 10.1 Berlin
+                            // cf https://github.com/DeveloppeurPascal/DeepL4Delphi/issues/6
+                            JSO2 := JSA.Items[0] as tjsonobject;
+{$ELSE}
                             JSO2 := JSA[0] as tjsonobject;
+{$ENDIF}
                             if assigned(JSO2) then
                               try
                                 result := (JSO2.GetValue('text')
@@ -264,7 +282,7 @@ procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
 var
   ErrorMessage: string;
 begin
-{$IF CompilerVersion >=32.0}
+{$IF CompilerVersion >= 32.0} // from 10.2 Tokyo
   ttask.run(
     procedure
     var
