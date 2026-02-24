@@ -39,8 +39,8 @@
   https://github.com/DeveloppeurPascal/DeepL4Delphi
 
   ***************************************************************************
-  File last update : 2026-02-23T19:54:23.362+01:00
-  Signature : 7dc257b8f7c8b2b37eb895c0df1fe67d953b1b9f
+  File last update : 2026-02-24T17:39:22.000+01:00
+  Signature : 3c90cff9a85affdc5ca798a8c68695e11e20e5be
   ***************************************************************************
 *)
 
@@ -71,52 +71,107 @@ type
   TOnTextTranslatedErrorEvent = procedure(OriginalText, SourceLang, TargetLang,
     ErrorText: string) of object;
 
+  TDeepLAPI = class
+  private
+    class var FServerURL: string;
+  protected
+  public
+    const
+      ServerURLFree = 'https://api-free.deepl.com';
+      ServerURLPro = 'https://api.deepl.com';
+
+      /// <summary>
+    /// Call to initialize DeepL API Server URL.
+    /// By default the Free API Server is used.
+    /// </summary>
+    class procedure Init(AServerURL: string);
+
+    /// <summary>
+    /// call DeepL API to translate the text from source_lang to target_lang
+    /// (synchrone - current thread is freezed during process)
+    /// </summary>
+    /// <remarks>
+    /// look at https://developers.deepl.com/api-reference/translate
+    /// </remarks>
+    class function TranslateTextSync(auth_key, source_lang, target_lang,
+      text: string; split_sentences: string = '1';
+      preserve_formatting: string = '0'; formality: string = 'default'): string;
+
+    /// <summary>
+    /// call DeepL API to translate the text from source_lang to target_lang
+    /// (asynchrone - don't freeze current thread)
+    /// </summary>
+    /// <remarks>
+    /// look at https://developers.deepl.com/api-reference/translate
+    /// </remarks>
+    class procedure TranslateTextASync(auth_key, source_lang, target_lang,
+      text: string; onTexTranslatedProc: TOnTextTranslatedProc;
+      onTextTranslatedErrorProc: TOnTextTranslatedErrorProc = nil;
+      split_sentences: string = '1'; preserve_formatting: string = '0';
+      formality: string = 'default'); overload;
+
+    /// <summary>
+    /// call DeepL API to translate the text from source_lang to target_lang
+    /// (asynchrone - don't freeze current thread)
+    /// </summary>
+    /// <remarks>
+    /// look at https://developers.deepl.com/api-reference/translate
+    /// </remarks>
+    class procedure TranslateTextASync(auth_key, source_lang, target_lang,
+      text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
+      onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent = nil;
+      split_sentences: string = '1'; preserve_formatting: string = '0';
+      formality: string = 'default'); overload;
+  end;
+
+{$REGION 'deprecated features, use TDeepLAPI class'}
 /// <summary>
 /// call DeepL API to translate the text from source_lang to target_lang
 /// (synchrone - current thread is freezed during process)
 /// </summary>
 /// <remarks>
-/// look at https://www.deepl.com/docs-api/translating-text/response/
+/// look at https://developers.deepl.com/api-reference/translate
 /// </remarks>
 function DeepLTranslateTextSync(auth_key, source_lang, target_lang,
   text: string; split_sentences: string = '1';
-  preserve_formatting: string = '0'; formality: string = 'default'): string;
+  preserve_formatting: string = '0'; formality: string = 'default'): string; deprecated 'use TDeepLAPI.TranslateTextSync';
 
 /// <summary>
 /// call DeepL API to translate the text from source_lang to target_lang
 /// (asynchrone - don't freeze current thread)
 /// </summary>
 /// <remarks>
-/// look at https://www.deepl.com/docs-api/translating-text/response/
+/// look at https://developers.deepl.com/api-reference/translate
 /// </remarks>
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   text: string; onTexTranslatedProc: TOnTextTranslatedProc;
   onTextTranslatedErrorProc: TOnTextTranslatedErrorProc = nil;
   split_sentences: string = '1'; preserve_formatting: string = '0';
-  formality: string = 'default'); overload;
+  formality: string = 'default'); overload; deprecated 'use TDeepLAPI.TranslateTextASync';
 
 /// <summary>
 /// call DeepL API to translate the text from source_lang to target_lang
 /// (asynchrone - don't freeze current thread)
 /// </summary>
 /// <remarks>
-/// look at https://www.deepl.com/docs-api/translating-text/response/
+/// look at https://developers.deepl.com/api-reference/translate
 /// </remarks>
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
-  text: string; onTexTranslatedEvent: TOnTextTranslatedEvent;
+  text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
   onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent = nil;
   split_sentences: string = '1'; preserve_formatting: string = '0';
-  formality: string = 'default'); overload;
+  formality: string = 'default'); overload; deprecated 'use TDeepLAPI.TranslateTextASync';
 
 const
-  CDeepLAPIURL_Free = 'https://api-free.deepl.com';
-  CDeepLAPIURL_Pro = 'https://api.deepl.com';
+  CDeepLAPIURL_Free = TDeepLAPI.ServerURLFree deprecated 'use TDeepLAPI.ServerURLFree';
+  CDeepLAPIURL_Pro = TDeepLAPI.ServerURLPro deprecated 'use TDeepLAPI.ServerURLPro';
 
 /// <summary>
 /// Call to initialize DeepL API URL.
 /// If you forget to do, you will be on Free API.
 /// </summary>
-procedure DeepLSetAPIURL(APIURL: string = CDeepLAPIURL_Free);
+procedure DeepLSetAPIURL(APIURL: string = TDeepLAPI.ServerURLFree); deprecated 'use TDeepLAPI.Init';
+{$ENDREGION}
 
 implementation
 
@@ -147,12 +202,136 @@ begin
 end;
 {$ENDIF}
 
-var
-  DeepLAPIURL: string;
-
 function DeepLTranslateTextSync(auth_key, source_lang, target_lang,
   text: string; split_sentences: string; preserve_formatting: string;
   formality: string): string;
+begin
+  result := TDeepLAPI.TranslateTextSync(auth_key, source_lang, target_lang, text, split_sentences, preserve_formatting,
+    formality)
+end;
+
+procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
+  text: string; onTexTranslatedProc: TOnTextTranslatedProc;
+  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences: string;
+  preserve_formatting: string; formality: string);
+begin
+  TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang, text, onTexTranslatedProc, onTextTranslatedErrorProc,
+    split_sentences, preserve_formatting, formality);
+end;
+
+procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
+  text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
+  onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences: string;
+  preserve_formatting: string; formality: string); overload;
+begin
+  TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang, text, onTextTranslatedEvent, onTexTranslatedErrorEvent,
+    split_sentences, preserve_formatting, formality);
+end;
+
+procedure DeepLSetAPIURL(APIURL: string);
+begin
+  TDeepLAPI.Init(APIURL);
+end;
+
+{ TDeepLAPI }
+
+class procedure TDeepLAPI.Init(AServerURL: string);
+begin
+  if (AServerURL.Trim.IsEmpty) then
+    raise exception.Create('Please give the DeepL API URL.');
+  FServerURL := AServerURL;
+end;
+
+class procedure TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang,
+  text: string; onTexTranslatedProc: TOnTextTranslatedProc;
+  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences,
+  preserve_formatting, formality: string);
+var
+  ErrorMessage: string;
+begin
+{$IF CompilerVersion >= 32.0} // from 10.2 Tokyo
+  ttask.run(
+    procedure
+    var
+      result: string;
+    begin
+      try
+        result := TranslateTextSync(auth_key, source_lang, target_lang,
+          text, split_sentences, preserve_formatting, formality);
+        if assigned(onTexTranslatedProc) then
+          tthread.queue(nil,
+            procedure
+            begin
+              onTexTranslatedProc(text, result, source_lang, target_lang);
+            end);
+      except
+        on e: exception do
+        begin
+          ErrorMessage := e.Message;
+          if assigned(onTextTranslatedErrorProc) then
+            tthread.queue(nil,
+              procedure
+              begin
+                onTextTranslatedErrorProc(text, source_lang, target_lang,
+                  ErrorMessage);
+              end);
+        end;
+      end;
+    end);
+{$ELSE}
+  tthread.CreateAnonymousThread(
+    procedure
+    var
+      result: string;
+    begin
+      try
+        result := TranslateTextSync(auth_key, source_lang, target_lang,
+          text, split_sentences, preserve_formatting, formality);
+        if assigned(onTexTranslatedProc) then
+          tthread.queue(nil,
+            procedure
+            begin
+              onTexTranslatedProc(text, result, source_lang, target_lang);
+            end);
+      except
+        on e: exception do
+        begin
+          ErrorMessage := e.Message;
+          if assigned(onTextTranslatedErrorProc) then
+            tthread.queue(nil,
+              procedure
+              begin
+                onTextTranslatedErrorProc(text, source_lang, target_lang,
+                  ErrorMessage);
+              end);
+        end;
+      end;
+    end).Start;
+{$ENDIF}
+end;
+
+class procedure TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang,
+  text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
+  onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences,
+  preserve_formatting, formality: string);
+begin
+  TranslateTextASync(auth_key, source_lang, target_lang, text,
+    procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
+    begin
+      if assigned(onTextTranslatedEvent) then
+        onTextTranslatedEvent(OriginalText, TranslatedText, SourceLang,
+          TargetLang);
+    end,
+    procedure(OriginalText, SourceLang, TargetLang, ErrorText: string)
+    begin
+      if assigned(onTexTranslatedErrorEvent) then
+        onTexTranslatedErrorEvent(OriginalText, SourceLang, TargetLang,
+          ErrorText);
+    end, split_sentences, preserve_formatting, formality);
+end;
+
+class function TDeepLAPI.TranslateTextSync(auth_key, source_lang, target_lang,
+  text, split_sentences, preserve_formatting, formality: string): string;
 var
   APIServer: thttpclient;
   Params: tstringlist;
@@ -180,7 +359,7 @@ begin
       Params.AddPair('split_sentences', split_sentences);
       Params.AddPair('preserve_formatting', preserve_formatting);
       Params.AddPair('formality', formality);
-      APIResponse := APIServer.Post(DeepLAPIURL + '/v2/translate', Params);
+      APIResponse := APIServer.Post(FServerURL + '/v2/translate', Params);
     finally
       Params.free;
     end;
@@ -279,104 +458,9 @@ begin
   end;
 end;
 
-procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
-  text: string; onTexTranslatedProc: TOnTextTranslatedProc;
-  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences: string;
-  preserve_formatting: string; formality: string);
-var
-  ErrorMessage: string;
-begin
-{$IF CompilerVersion >= 32.0} // from 10.2 Tokyo
-  ttask.run(
-    procedure
-    var
-      result: string;
-    begin
-      try
-        result := DeepLTranslateTextSync(auth_key, source_lang, target_lang,
-          text, split_sentences, preserve_formatting, formality);
-        if assigned(onTexTranslatedProc) then
-          tthread.queue(nil,
-            procedure
-            begin
-              onTexTranslatedProc(text, result, source_lang, target_lang);
-            end);
-      except
-        on e: exception do
-        begin
-          ErrorMessage := e.Message;
-          if assigned(onTextTranslatedErrorProc) then
-            tthread.queue(nil,
-              procedure
-              begin
-                onTextTranslatedErrorProc(text, source_lang, target_lang,
-                  ErrorMessage);
-              end);
-        end;
-      end;
-    end);
-{$ELSE}
-  tthread.CreateAnonymousThread(
-    procedure
-    var
-      result: string;
-    begin
-      try
-        result := DeepLTranslateTextSync(auth_key, source_lang, target_lang,
-          text, split_sentences, preserve_formatting, formality);
-        if assigned(onTexTranslatedProc) then
-          tthread.queue(nil,
-            procedure
-            begin
-              onTexTranslatedProc(text, result, source_lang, target_lang);
-            end);
-      except
-        on e: exception do
-        begin
-          ErrorMessage := e.Message;
-          if assigned(onTextTranslatedErrorProc) then
-            tthread.queue(nil,
-              procedure
-              begin
-                onTextTranslatedErrorProc(text, source_lang, target_lang,
-                  ErrorMessage);
-              end);
-        end;
-      end;
-    end).Start;
-{$ENDIF}
-end;
-
-procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
-  text: string; onTexTranslatedEvent: TOnTextTranslatedEvent;
-  onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences: string;
-  preserve_formatting: string; formality: string); overload;
-begin
-  DeepLTranslateTextASync(auth_key, source_lang, target_lang, text,
-    procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
-    begin
-      if assigned(onTexTranslatedEvent) then
-        onTexTranslatedEvent(OriginalText, TranslatedText, SourceLang,
-          TargetLang);
-    end,
-    procedure(OriginalText, SourceLang, TargetLang, ErrorText: string)
-    begin
-      if assigned(onTexTranslatedErrorEvent) then
-        onTexTranslatedErrorEvent(OriginalText, SourceLang, TargetLang,
-          ErrorText);
-    end, split_sentences, preserve_formatting, formality);
-end;
-
-procedure DeepLSetAPIURL(APIURL: string);
-begin
-  if (APIURL.Trim.IsEmpty) then
-    raise exception.Create('Please give the DeepL API URL.');
-  DeepLAPIURL := APIURL;
-end;
-
 initialization
 
-  DeepLSetAPIURL(CDeepLAPIURL_Free);
+  TDeepLAPI.Init(TDeeplAPI.ServerURLFree);
 
 end.
 
