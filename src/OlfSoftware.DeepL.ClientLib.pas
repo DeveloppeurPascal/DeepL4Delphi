@@ -39,8 +39,8 @@
   https://github.com/DeveloppeurPascal/DeepL4Delphi
 
   ***************************************************************************
-  File last update : 2026-02-24T17:39:22.000+01:00
-  Signature : 3c90cff9a85affdc5ca798a8c68695e11e20e5be
+  File last update : 2026-02-24T18:18:20.000+01:00
+  Signature : 58681f9fa6e926653f1ab8c36bc744a1a90183d1
   ***************************************************************************
 *)
 
@@ -95,7 +95,7 @@ type
     /// </remarks>
     class function TranslateTextSync(auth_key, source_lang, target_lang,
       text: string; split_sentences: string = '1';
-      preserve_formatting: string = '0'; formality: string = 'default'): string;
+      preserve_formatting: boolean = false; formality: string = 'default'): string;
 
     /// <summary>
     /// call DeepL API to translate the text from source_lang to target_lang
@@ -107,7 +107,7 @@ type
     class procedure TranslateTextASync(auth_key, source_lang, target_lang,
       text: string; onTexTranslatedProc: TOnTextTranslatedProc;
       onTextTranslatedErrorProc: TOnTextTranslatedErrorProc = nil;
-      split_sentences: string = '1'; preserve_formatting: string = '0';
+      split_sentences: string = '1'; preserve_formatting: boolean = false;
       formality: string = 'default'); overload;
 
     /// <summary>
@@ -120,7 +120,7 @@ type
     class procedure TranslateTextASync(auth_key, source_lang, target_lang,
       text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
       onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent = nil;
-      split_sentences: string = '1'; preserve_formatting: string = '0';
+      split_sentences: string = '1'; preserve_formatting: boolean = false;
       formality: string = 'default'); overload;
   end;
 
@@ -189,24 +189,11 @@ uses
 {$ENDIF}
   ;
 
-{$IF CompilerVersion < 31.0} // before 10.1 Berlin
-// cf https://github.com/DeveloppeurPascal/DeepL4Delphi/issues/6
-type
-  TStringListHelper = class helper for TStringList
-    function AddPair(const AName, AValue: string): integer;
-  end;
-
-function TStringListHelper.AddPair(const AName, AValue: string): integer;
-begin
-  Result := Add(AName + NameValueSeparator + AValue);
-end;
-{$ENDIF}
-
 function DeepLTranslateTextSync(auth_key, source_lang, target_lang,
   text: string; split_sentences: string; preserve_formatting: string;
   formality: string): string;
 begin
-  result := TDeepLAPI.TranslateTextSync(auth_key, source_lang, target_lang, text, split_sentences, preserve_formatting,
+  result := TDeepLAPI.TranslateTextSync(auth_key, source_lang, target_lang, text, split_sentences, preserve_formatting = '1',
     formality)
 end;
 
@@ -216,7 +203,7 @@ procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   preserve_formatting: string; formality: string);
 begin
   TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang, text, onTexTranslatedProc, onTextTranslatedErrorProc,
-    split_sentences, preserve_formatting, formality);
+    split_sentences, preserve_formatting = '1', formality);
 end;
 
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
@@ -225,7 +212,7 @@ procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   preserve_formatting: string; formality: string); overload;
 begin
   TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang, text, onTextTranslatedEvent, onTexTranslatedErrorEvent,
-    split_sentences, preserve_formatting, formality);
+    split_sentences, preserve_formatting = '1', formality);
 end;
 
 procedure DeepLSetAPIURL(APIURL: string);
@@ -244,8 +231,8 @@ end;
 
 class procedure TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang,
   text: string; onTexTranslatedProc: TOnTextTranslatedProc;
-  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences,
-  preserve_formatting, formality: string);
+  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences: string;
+  preserve_formatting: boolean; formality: string);
 var
   ErrorMessage: string;
 begin
@@ -312,8 +299,8 @@ end;
 
 class procedure TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang,
   text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
-  onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences,
-  preserve_formatting, formality: string);
+  onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences: string;
+  preserve_formatting: boolean; formality: string);
 begin
   TranslateTextASync(auth_key, source_lang, target_lang, text,
     procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
@@ -331,13 +318,14 @@ begin
 end;
 
 class function TDeepLAPI.TranslateTextSync(auth_key, source_lang, target_lang,
-  text, split_sentences, preserve_formatting, formality: string): string;
+  text, split_sentences: string; preserve_formatting: boolean; formality: string): string;
 var
-  APIServer: thttpclient;
-  Params: tstringlist;
+  APIServer: THTTPClient;
+  Params: TJSONObject;
+  ParamsStream: TStringStream;
   APIResponse: IHTTPResponse;
-  JSO, JSO2: tjsonobject;
-  JSA: tjsonarray;
+  JSO, JSO2: TJSONObject;
+  JSA: TJSONArray;
   JSONResponse: string;
 begin
   if text.IsEmpty then
@@ -348,18 +336,24 @@ begin
   // TODO : control the content of the parameters to ensure that they are what the API expects
   APIServer := thttpclient.Create;
   try
-    APIServer.CustomHeaders['Content-Type'] := 'application/x-www-form-urlencoded';
+    APIServer.CustomHeaders['Content-Type'] := 'application/json';
     if not auth_key.IsEmpty then
       APIServer.CustomHeaders['Authorization'] := 'DeepL-Auth-Key ' + auth_key;
-    Params := tstringlist.Create;
+    Params := TJSONObject.Create;
     try
       Params.AddPair('source_lang', source_lang);
       Params.AddPair('target_lang', target_lang);
-      Params.AddPair('text', text);
+      Params.AddPair('text', TJSONArray.Create.add(text));
       Params.AddPair('split_sentences', split_sentences);
       Params.AddPair('preserve_formatting', preserve_formatting);
       Params.AddPair('formality', formality);
-      APIResponse := APIServer.Post(FServerURL + '/v2/translate', Params);
+      ParamsStream := TStringStream.Create(Params.ToJSON);
+      try
+        ParamsStream.Position := 0;
+        APIResponse := APIServer.Post(FServerURL + '/v2/translate', ParamsStream);
+      finally
+        ParamsStream.Free;
+      end;
     finally
       Params.free;
     end;
@@ -439,12 +433,18 @@ begin
           end;
         429:
           begin // Too many requests. Please wait and resend your request.
-            // TODO : change in needed
+            // TODO : retry is suggested by DeepL, see https://developers.deepl.com/docs/best-practices/pre-production-checklist
             raise exception.Create
             ('Too many requests. Please wait and resend your request.');
           end;
+        500:
+          begin // Internal Server Error. Please wait and resend your request.
+            // TODO : retry is suggested by DeepL, see https://developers.deepl.com/docs/best-practices/pre-production-checklist
+            raise exception.Create
+            ('Internal Server Error. Please wait and resend your request.');
+          end;
       else
-        // TODO : request error, see status code from https://www.deepl.com/docs-api/accessing-the-api/error-handling/
+        // TODO : request error, see status code from https://developers.deepl.com/docs/best-practices/error-handling
         raise exception.Create(APIResponse.StatusCode.ToString + ' ' +
           APIResponse.StatusText);
       end
