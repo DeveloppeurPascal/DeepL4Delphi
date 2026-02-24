@@ -39,8 +39,8 @@
   https://github.com/DeveloppeurPascal/DeepL4Delphi
 
   ***************************************************************************
-  File last update : 2026-02-23T19:54:23.346+01:00
-  Signature : 234d35d752a8653cfdf0fbec8354d2ba7b355ac7
+  File last update : 2026-02-24T19:45:04.000+01:00
+  Signature : e81abd73b1db054c4cba38fc74486b65437972c2
   ***************************************************************************
 *)
 
@@ -105,6 +105,7 @@ implementation
 {$R *.fmx}
 
 uses
+  System.Generics.Collections,
   System.IOUtils,
   System.JSON;
 
@@ -143,7 +144,7 @@ begin
       var
       jsa := jso.GetValue('translations') as tjsonarray;
       var
-      jsitem := jsa[0] as TJSONObject;
+      jsitem := jsa.Items[0] as TJSONObject;
       Memo1.lines.add((jsitem.GetValue('text') as tjsonstring).Value);
     finally
       jso.free;
