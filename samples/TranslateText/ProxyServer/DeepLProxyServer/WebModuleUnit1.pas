@@ -39,8 +39,8 @@
   https://github.com/DeveloppeurPascal/DeepL4Delphi
 
   ***************************************************************************
-  File last update : 2026-02-23T19:54:23.317+01:00
-  Signature : b3beeff69727cf6a26a1a39e5503cd575db271d1
+  File last update : 2026-02-24T20:09:36.000+01:00
+  Signature : fc23a5f4bde754ac90e801a423725c1b7c37ae44
   ***************************************************************************
 *)
 
@@ -92,51 +92,87 @@ var
   LTK: string;
   TexteTraduit: string;
   jso: tjsonobject;
+  jsa: TJSONArray;
 begin
   // writeln(request.Content);
 
   // for var i := 0 to request.ContentFields.Count-1 do
   // writeln(          request.ContentFields[i]);
 
+  if request.ContentType.Equals('application/json') and (not request.Content.isempty) then
+  begin
+    //    writeln(request.content);
+    jso := tjsonobject.ParseJSONValue(request.Content) as TJSONObject;
+    if not assigned(jso) then
+    begin
+      Response.StatusCode := 404;
+      exit;
+    end
+    else
+      try
+        if not jso.TryGetValue<string>('source_lang', SourceLang) then
+          SourceLang := '';
+        if not jso.TryGetValue<string>('target_lang', TargetLang) then
+        begin
+          Response.StatusCode := 404;
+          abort;
+        end;
+        if jso.TryGetValue<TJSONArray>('text', jsa) and assigned(jsa) and (jsa.count = 1) then
+          Texte := jsa.Items[0].AsType<string>
+        else
+        begin
+          Response.StatusCode := 404;
+          abort;
+        end;
+        if not jso.TryGetValue<string>('split_sentences', SplitSentences) then
+          SplitSentences := '1';
+        if not jso.TryGetValue<string>('preserve_formatting', PreserveFormatting) then
+          PreserveFormatting := '0';
+        if not jso.TryGetValue<string>('formality', Formality) then
+          Formality := 'default';
+      finally
+        jso.free;
+      end;
+  end
+  else
+  begin
+    // récupérer les paramètres de la requête
+    if (Request.ContentFields.IndexOfName('source_lang') < 0) then
+      SourceLang := ''
+    else
+      SourceLang := Request.ContentFields.Values['source_lang'];
+    if (Request.ContentFields.IndexOfName('target_lang') < 0) then
+    begin
+      Response.StatusCode := 404;
+      exit;
+    end
+    else
+      TargetLang := Request.ContentFields.Values['target_lang'];
+    if (Request.ContentFields.IndexOfName('text') < 0) then
+    begin
+      Response.StatusCode := 404;
+      exit;
+    end
+    else
+      Texte := Request.ContentFields.Values['text'];
+    if (Request.ContentFields.IndexOfName('split_sentences') < 0) then
+      SplitSentences := '1'
+    else
+      SplitSentences := Request.ContentFields.Values['split_sentences'];
+    if (Request.ContentFields.IndexOfName('preserve_formatting') < 0) then
+      PreserveFormatting := '0'
+    else
+      PreserveFormatting := Request.ContentFields.Values['preserve_formatting'];
+    if (Request.ContentFields.IndexOfName('formality') < 0) then
+      Formality := 'default'
+    else
+      Formality := Request.ContentFields.Values['formality'];
+  end;
+
   Response.CustomHeaders.Add('Access-Control-Allow-Origin=*');
 
-  // récupérer les paramètres de la requête
-  if (Request.ContentFields.IndexOfName('source_lang') < 0) then
-  begin
-    Response.StatusCode := 404;
-    exit;
-  end
-  else
-    SourceLang := Request.ContentFields.Values['source_lang'];
-  if (Request.ContentFields.IndexOfName('target_lang') < 0) then
-  begin
-    Response.StatusCode := 404;
-    exit;
-  end
-  else
-    TargetLang := Request.ContentFields.Values['target_lang'];
-  if (Request.ContentFields.IndexOfName('text') < 0) then
-  begin
-    Response.StatusCode := 404;
-    exit;
-  end
-  else
-    Texte := Request.ContentFields.Values['text'];
-  if (Request.ContentFields.IndexOfName('split_sentences') < 0) then
-    SplitSentences := '1'
-  else
-    SplitSentences := Request.ContentFields.Values['split_sentences'];
-  if (Request.ContentFields.IndexOfName('preserve_formatting') < 0) then
-    PreserveFormatting := '0'
-  else
-    PreserveFormatting := Request.ContentFields.Values['preserve_formatting'];
-  if (Request.ContentFields.IndexOfName('formality') < 0) then
-    Formality := 'default'
-  else
-    Formality := Request.ContentFields.Values['formality'];
   // regarder si on a déjà fait cette demande
-  LTK := SourceLang + TargetLang + Texte + SplitSentences + PreserveFormatting +
-  Formality;
+  LTK := SourceLang + TargetLang + Texte + SplitSentences + PreserveFormatting + Formality;
   // si oui, envoyer la réponse de départ
   if ListeTraductions.ContainsKey(LTK) then
   begin
