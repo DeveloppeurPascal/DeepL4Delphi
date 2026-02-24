@@ -39,14 +39,17 @@
   https://github.com/DeveloppeurPascal/DeepL4Delphi
 
   ***************************************************************************
-  File last update : 2026-02-24T18:18:20.000+01:00
-  Signature : 58681f9fa6e926653f1ab8c36bc744a1a90183d1
+  File last update : 2026-02-24T19:48:54.000+01:00
+  Signature : ce96e802a04e4aaeae5330c5564da79f6ee6b588
   ***************************************************************************
 *)
 
 unit OlfSoftware.DeepL.ClientLib;
 
 interface
+
+uses
+  System.JSON;
 
 type
   /// <summary>
@@ -74,6 +77,7 @@ type
   TDeepLAPI = class
   private
     class var FServerURL: string;
+    class function POST(URL, auth_key: string; Params: TJSONObject): TJSONObject;
   protected
   public
     const
@@ -84,6 +88,9 @@ type
     /// Call to initialize DeepL API Server URL.
     /// By default the Free API Server is used.
     /// </summary>
+/// <param name="AServerURL">
+///   URL to the server API. Use TDeepLAPI.ServerURLPro or TDeepLAPI.ServerURLFree for official servers.
+/// </param>
     class procedure Init(AServerURL: string);
 
     /// <summary>
@@ -93,9 +100,15 @@ type
     /// <remarks>
     /// look at https://developers.deepl.com/api-reference/translate
     /// </remarks>
-    class function TranslateTextSync(auth_key, source_lang, target_lang,
-      text: string; split_sentences: string = '1';
-      preserve_formatting: boolean = false; formality: string = 'default'): string;
+/// <param name="OptionalSettings">
+///   JSON object contening your optional parameters. They are passed "as it" to DeepL in request body.
+/// </param>
+    class function TranslateTextSync(auth_key, target_lang, text: string; OptionalSettings: TJSONObject;
+      FreeOptionalSettings: boolean; var DetectedSourceLang: string): string; overload;
+    class function TranslateTextSync(auth_key, target_lang, text: string; OptionalSettings: TJSONObject = nil;
+      FreeOptionalSettings: boolean = true): string; overload;
+    class function TranslateTextSync(auth_key, source_lang, target_lang, text: string; OptionalSettings: TJSONObject = nil;
+      FreeOptionalSettings: boolean = true): string; overload;
 
     /// <summary>
     /// call DeepL API to translate the text from source_lang to target_lang
@@ -104,11 +117,17 @@ type
     /// <remarks>
     /// look at https://developers.deepl.com/api-reference/translate
     /// </remarks>
+/// <param name="OptionalSettings">
+///   JSON object contening your optional parameters. They are passed "as it" to DeepL in request body.
+/// </param>
+    class procedure TranslateTextASync(auth_key, target_lang,
+      text: string; onTextTranslatedProc: TOnTextTranslatedProc;
+      onTextTranslatedErrorProc: TOnTextTranslatedErrorProc = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings:
+      boolean = true); overload;
     class procedure TranslateTextASync(auth_key, source_lang, target_lang,
-      text: string; onTexTranslatedProc: TOnTextTranslatedProc;
-      onTextTranslatedErrorProc: TOnTextTranslatedErrorProc = nil;
-      split_sentences: string = '1'; preserve_formatting: boolean = false;
-      formality: string = 'default'); overload;
+      text: string; onTextTranslatedProc: TOnTextTranslatedProc;
+      onTextTranslatedErrorProc: TOnTextTranslatedErrorProc = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings:
+      boolean = true); overload;
 
     /// <summary>
     /// call DeepL API to translate the text from source_lang to target_lang
@@ -117,11 +136,16 @@ type
     /// <remarks>
     /// look at https://developers.deepl.com/api-reference/translate
     /// </remarks>
+/// <param name="OptionalSettings">
+///   JSON object contening your optional parameters. They are passed "as it" to DeepL in request body.
+/// </param>
+    class procedure TranslateTextASync(auth_key, target_lang, text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
+      onTextTranslatedErrorEvent: TOnTextTranslatedErrorEvent = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings:
+      boolean = true); overload;
     class procedure TranslateTextASync(auth_key, source_lang, target_lang,
       text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
-      onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent = nil;
-      split_sentences: string = '1'; preserve_formatting: boolean = false;
-      formality: string = 'default'); overload;
+      onTextTranslatedErrorEvent: TOnTextTranslatedErrorEvent = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings:
+      boolean = true); overload;
   end;
 
 {$REGION 'deprecated features, use TDeepLAPI class'}
@@ -144,7 +168,7 @@ function DeepLTranslateTextSync(auth_key, source_lang, target_lang,
 /// look at https://developers.deepl.com/api-reference/translate
 /// </remarks>
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
-  text: string; onTexTranslatedProc: TOnTextTranslatedProc;
+  text: string; onTextTranslatedProc: TOnTextTranslatedProc;
   onTextTranslatedErrorProc: TOnTextTranslatedErrorProc = nil;
   split_sentences: string = '1'; preserve_formatting: string = '0';
   formality: string = 'default'); overload; deprecated 'use TDeepLAPI.TranslateTextASync';
@@ -158,7 +182,7 @@ procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
 /// </remarks>
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
-  onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent = nil;
+  onTextTranslatedErrorEvent: TOnTextTranslatedErrorEvent = nil;
   split_sentences: string = '1'; preserve_formatting: string = '0';
   formality: string = 'default'); overload; deprecated 'use TDeepLAPI.TranslateTextASync';
 
@@ -181,7 +205,6 @@ uses
   System.Net.HttpClient,
   System.Classes,
   System.SysUtils,
-  System.JSON,
   System.Generics.Collections
 {$IF CompilerVersion >= 32.0} // from 10.2 Tokyo
   ,
@@ -193,26 +216,29 @@ function DeepLTranslateTextSync(auth_key, source_lang, target_lang,
   text: string; split_sentences: string; preserve_formatting: string;
   formality: string): string;
 begin
-  result := TDeepLAPI.TranslateTextSync(auth_key, source_lang, target_lang, text, split_sentences, preserve_formatting = '1',
-    formality)
+  result := TDeepLAPI.TranslateTextSync(auth_key, source_lang, target_lang, text,
+    TJSONObject.Create.AddPair('split_sentences', split_sentences).addpair('preserve_formatting', preserve_formatting =
+    '1').addpair('formality', formality));
 end;
 
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
-  text: string; onTexTranslatedProc: TOnTextTranslatedProc;
+  text: string; onTextTranslatedProc: TOnTextTranslatedProc;
   onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences: string;
   preserve_formatting: string; formality: string);
 begin
-  TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang, text, onTexTranslatedProc, onTextTranslatedErrorProc,
-    split_sentences, preserve_formatting = '1', formality);
+  TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang, text, onTextTranslatedProc, onTextTranslatedErrorProc,
+    TJSONObject.Create.AddPair('split_sentences', split_sentences).addpair('preserve_formatting', preserve_formatting =
+    '1').addpair('formality', formality));
 end;
 
 procedure DeepLTranslateTextASync(auth_key, source_lang, target_lang,
   text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
-  onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences: string;
+  onTextTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences: string;
   preserve_formatting: string; formality: string); overload;
 begin
-  TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang, text, onTextTranslatedEvent, onTexTranslatedErrorEvent,
-    split_sentences, preserve_formatting = '1', formality);
+  TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang, text, onTextTranslatedEvent, onTextTranslatedErrorEvent,
+    TJSONObject.Create.AddPair('split_sentences', split_sentences).addpair('preserve_formatting', preserve_formatting =
+    '1').addpair('formality', formality));
 end;
 
 procedure DeepLSetAPIURL(APIURL: string);
@@ -230,132 +256,38 @@ begin
 end;
 
 class procedure TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang,
-  text: string; onTexTranslatedProc: TOnTextTranslatedProc;
-  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; split_sentences: string;
-  preserve_formatting: boolean; formality: string);
-var
-  ErrorMessage: string;
+  text: string; onTextTranslatedProc: TOnTextTranslatedProc;
+  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc; OptionalSettings: TJSONObject; FreeOptionalSettings: boolean);
 begin
-{$IF CompilerVersion >= 32.0} // from 10.2 Tokyo
-  ttask.run(
-    procedure
-    var
-      result: string;
-    begin
-      try
-        result := TranslateTextSync(auth_key, source_lang, target_lang,
-          text, split_sentences, preserve_formatting, formality);
-        if assigned(onTexTranslatedProc) then
-          tthread.queue(nil,
-            procedure
-            begin
-              onTexTranslatedProc(text, result, source_lang, target_lang);
-            end);
-      except
-        on e: exception do
-        begin
-          ErrorMessage := e.Message;
-          if assigned(onTextTranslatedErrorProc) then
-            tthread.queue(nil,
-              procedure
-              begin
-                onTextTranslatedErrorProc(text, source_lang, target_lang,
-                  ErrorMessage);
-              end);
-        end;
-      end;
-    end);
-{$ELSE}
-  tthread.CreateAnonymousThread(
-    procedure
-    var
-      result: string;
-    begin
-      try
-        result := TranslateTextSync(auth_key, source_lang, target_lang,
-          text, split_sentences, preserve_formatting, formality);
-        if assigned(onTexTranslatedProc) then
-          tthread.queue(nil,
-            procedure
-            begin
-              onTexTranslatedProc(text, result, source_lang, target_lang);
-            end);
-      except
-        on e: exception do
-        begin
-          ErrorMessage := e.Message;
-          if assigned(onTextTranslatedErrorProc) then
-            tthread.queue(nil,
-              procedure
-              begin
-                onTextTranslatedErrorProc(text, source_lang, target_lang,
-                  ErrorMessage);
-              end);
-        end;
-      end;
-    end).Start;
-{$ENDIF}
+  if source_lang.IsEmpty then
+    TranslateTextaSync(auth_key, target_lang, text, onTextTranslatedProc, onTextTranslatedErrorProc, OptionalSettings,
+      FreeOptionalSettings)
+  else if not assigned(OptionalSettings) then
+    TranslateTextaSync(auth_key, target_lang, text, onTextTranslatedProc, onTextTranslatedErrorProc,
+      TJSONObject.Create.AddPair('source_lang', source_lang), true)
+  else
+    TranslateTextaSync(auth_key, target_lang, text, onTextTranslatedProc, onTextTranslatedErrorProc,
+      OptionalSettings.AddPair('source_lang', source_lang), FreeOptionalSettings);
 end;
 
-class procedure TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang,
-  text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
-  onTexTranslatedErrorEvent: TOnTextTranslatedErrorEvent; split_sentences: string;
-  preserve_formatting: boolean; formality: string);
-begin
-  TranslateTextASync(auth_key, source_lang, target_lang, text,
-    procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
-    begin
-      if assigned(onTextTranslatedEvent) then
-        onTextTranslatedEvent(OriginalText, TranslatedText, SourceLang,
-          TargetLang);
-    end,
-    procedure(OriginalText, SourceLang, TargetLang, ErrorText: string)
-    begin
-      if assigned(onTexTranslatedErrorEvent) then
-        onTexTranslatedErrorEvent(OriginalText, SourceLang, TargetLang,
-          ErrorText);
-    end, split_sentences, preserve_formatting, formality);
-end;
-
-class function TDeepLAPI.TranslateTextSync(auth_key, source_lang, target_lang,
-  text, split_sentences: string; preserve_formatting: boolean; formality: string): string;
+class function TDeepLAPI.POST(URL, auth_key: string; Params: TJSONObject): TJSONObject;
 var
   APIServer: THTTPClient;
-  Params: TJSONObject;
   ParamsStream: TStringStream;
   APIResponse: IHTTPResponse;
-  JSO, JSO2: TJSONObject;
-  JSA: TJSONArray;
   JSONResponse: string;
 begin
-  if text.IsEmpty then
-  begin
-    result := '';
-    exit;
-  end;
-  // TODO : control the content of the parameters to ensure that they are what the API expects
-  APIServer := thttpclient.Create;
+  APIServer := THTTPClient.Create;
   try
     APIServer.CustomHeaders['Content-Type'] := 'application/json';
     if not auth_key.IsEmpty then
       APIServer.CustomHeaders['Authorization'] := 'DeepL-Auth-Key ' + auth_key;
-    Params := TJSONObject.Create;
+    ParamsStream := TStringStream.Create(Params.ToJSON);
     try
-      Params.AddPair('source_lang', source_lang);
-      Params.AddPair('target_lang', target_lang);
-      Params.AddPair('text', TJSONArray.Create.add(text));
-      Params.AddPair('split_sentences', split_sentences);
-      Params.AddPair('preserve_formatting', preserve_formatting);
-      Params.AddPair('formality', formality);
-      ParamsStream := TStringStream.Create(Params.ToJSON);
-      try
-        ParamsStream.Position := 0;
-        APIResponse := APIServer.Post(FServerURL + '/v2/translate', ParamsStream);
-      finally
-        ParamsStream.Free;
-      end;
+      ParamsStream.Position := 0;
+      APIResponse := APIServer.Post(url, ParamsStream);
     finally
-      Params.free;
+      ParamsStream.Free;
     end;
     if assigned(APIResponse) then
       case (APIResponse.StatusCode) of
@@ -363,72 +295,12 @@ begin
           begin // ok
             JSONResponse := APIResponse.ContentAsString(tencoding.UTF8);
             if JSONResponse.IsEmpty then
-            begin
-              // TODO : error
-              result := '';
-            end
+              result := nil
             else
               try
-                JSO := tjsonobject.ParseJSONValue(JSONResponse) as tjsonobject;
-                if assigned(JSO) then
-                  try
-                    try
-                      JSA := JSO.GetValue('translations') as tjsonarray;
-                      if assigned(JSA) then
-                        if (JSA.Count = 1) then
-                        begin
-                          try
-{$IF CompilerVersion < 31.0} // before 10.1 Berlin
-                            // cf https://github.com/DeveloppeurPascal/DeepL4Delphi/issues/6
-                            JSO2 := JSA.Items[0] as tjsonobject;
-{$ELSE}
-                            JSO2 := JSA[0] as tjsonobject;
-{$ENDIF}
-                            if assigned(JSO2) then
-                              try
-                                result := (JSO2.GetValue('text')
-                                  as tjsonstring).Value
-                              except
-                                result := '';
-                                // TODO : text undefined
-                              end
-                            else
-                            begin
-                              result := '';
-                              // TODO : JSO2 (translated item) undefined
-                            end;
-                          except
-                            result := '';
-                            // TODO : JSO2 (translated item) undefined
-                          end;
-                        end
-                        else
-                        begin
-                          result := '';
-                          // TODO : add an error log somewhere
-                          raise exception.Create('DeepL response with ' +
-                            JSA.Count.ToString + ' but attended 1.');
-                        end
-                      else
-                      begin
-                        result := '';
-                        // TODO : JSA undefined
-                      end;
-                    except
-                      result := '';
-                      // TODO : JSA undefined
-                    end;
-                  finally
-                    JSO.free;
-                  end
-                else
-                begin
-                  result := '';
-                  // TODO : JSO undefined or wrong format
-                end;
+                result := TJSONObject.ParseJSONValue(JSONResponse) as TJSONObject;
               except
-                result := '';
-                // TODO : JSO undefined or wrong format
+                result := nil;
               end;
           end;
         429:
@@ -449,13 +321,210 @@ begin
           APIResponse.StatusText);
       end
     else
-    begin
-      result := '';
       // TODO : error APIResponse undefined
-    end;
+      raise Exception.Create('Undefined answer from DeepL server.');
   finally
     APIServer.free;
   end;
+end;
+
+class procedure TDeepLAPI.TranslateTextASync(auth_key, source_lang, target_lang,
+  text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
+  onTextTranslatedErrorEvent: TOnTextTranslatedErrorEvent; OptionalSettings: TJSONObject; FreeOptionalSettings: boolean);
+begin
+  TranslateTextASync(auth_key, source_lang, target_lang, text,
+    procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
+    begin
+      if assigned(onTextTranslatedEvent) then
+        onTextTranslatedEvent(OriginalText, TranslatedText, SourceLang,
+          TargetLang);
+    end,
+    procedure(OriginalText, SourceLang, TargetLang, ErrorText: string)
+    begin
+      if assigned(onTextTranslatedErrorEvent) then
+        onTextTranslatedErrorEvent(OriginalText, SourceLang, TargetLang,
+          ErrorText);
+    end, OptionalSettings, FreeOptionalSettings);
+end;
+
+class function TDeepLAPI.TranslateTextSync(auth_key, target_lang, text: string;
+  OptionalSettings: TJSONObject; FreeOptionalSettings: boolean;
+  var DetectedSourceLang: string): string;
+var
+  Params, Response, FirstItem: TJSONObject;
+  Translations: TJSONArray;
+  i: integer;
+begin
+  if text.IsEmpty then
+  begin
+    result := '';
+    DetectedSourceLang := '';
+  end
+  else
+  begin
+    // TODO : control the content of the parameters to ensure that they are what the API expects
+    Params := TJSONObject.Create;
+    try
+      Params.AddPair('target_lang', target_lang);
+      Params.AddPair('text', TJSONArray.Create.add(text));
+      if assigned(OptionalSettings) then
+      begin
+        for i := OptionalSettings.Count - 1 downto 0 do
+          Params.AddPair(OptionalSettings.RemovePair(OptionalSettings.pairs[i].JsonString.Value));
+        if FreeOptionalSettings then
+          OptionalSettings.Free;
+      end;
+      response := POST(FServerURL + '/v2/translate', auth_key, Params);
+    finally
+      Params.free;
+    end;
+    if assigned(Response) then
+      try
+        if Response.TryGetValue<TJSONArray>('translations', Translations) and (Translations.Count = 1) then
+        begin
+          try
+{$IF CompilerVersion < 31.0} // before 10.1 Berlin
+            // cf https://github.com/DeveloppeurPascal/DeepL4Delphi/issues/6
+            FirstItem := Translations.Items[0] as tjsonobject;
+{$ELSE}
+            FirstItem := Translations[0] as tjsonobject;
+{$ENDIF}
+          except
+            FirstItem := nil;
+          end;
+          if assigned(FirstItem) then
+          begin
+            if not FirstItem.TryGetValue<string>('detected_source_language', DetectedSourceLang) then
+              DetectedSourceLang := '';
+            if not FirstItem.TryGetValue<string>('text', result) then
+              result := '';
+          end
+          else
+            raise exception.Create('No or more than 1 answer from DeepL server.');
+        end;
+      finally
+        Response.free;
+      end
+    else
+    begin
+      result := '';
+      DetectedSourceLang := '';
+    end;
+  end;
+end;
+
+class procedure TDeepLAPI.TranslateTextASync(auth_key, target_lang,
+  text: string; onTextTranslatedProc: TOnTextTranslatedProc;
+  onTextTranslatedErrorProc: TOnTextTranslatedErrorProc;
+  OptionalSettings: TJSONObject; FreeOptionalSettings: boolean);
+var
+  ErrorMessage: string;
+begin
+{$IF CompilerVersion >= 32.0} // from 10.2 Tokyo
+  ttask.run(
+    procedure
+    var
+      Source_Lang,
+      result: string;
+    begin
+      if OptionalSettings.TryGetValue<string>('source_lang', source_lang) then
+        source_lang := '';
+      try
+        result := TranslateTextSync(auth_key, target_lang, text, OptionalSettings, FreeOptionalSettings, Source_Lang);
+        if assigned(onTextTranslatedProc) then
+          tthread.queue(nil,
+            procedure
+            begin
+              onTextTranslatedProc(text, result, source_lang, target_lang);
+            end);
+      except
+        on e: exception do
+        begin
+          ErrorMessage := e.Message;
+          if assigned(onTextTranslatedErrorProc) then
+            tthread.queue(nil,
+              procedure
+              begin
+                onTextTranslatedErrorProc(text, source_lang, target_lang, ErrorMessage);
+              end);
+        end;
+      end;
+    end);
+{$ELSE}
+  tthread.CreateAnonymousThread(
+    procedure
+    var
+      source_lang,
+      result: string;
+    begin
+      if OptionalSettings.TryGetValue<string>('source_lang', source_lang) then
+        source_lang := '';
+      try
+        result := TranslateTextSync(auth_key, target_lang, text, OptionalSettings, FreeOptionalSettings);
+        if assigned(onTextTranslatedProc) then
+          tthread.queue(nil,
+            procedure
+            begin
+              onTextTranslatedProc(text, result, source_lang, target_lang);
+            end);
+      except
+        on e: exception do
+        begin
+          ErrorMessage := e.Message;
+          if assigned(onTextTranslatedErrorProc) then
+            tthread.queue(nil,
+              procedure
+              begin
+                onTextTranslatedErrorProc(text, source_lang, target_lang,
+                  ErrorMessage);
+              end);
+        end;
+      end;
+    end).Start;
+{$ENDIF}
+end;
+
+class procedure TDeepLAPI.TranslateTextASync(auth_key, target_lang,
+  text: string; onTextTranslatedEvent: TOnTextTranslatedEvent;
+  onTextTranslatedErrorEvent: TOnTextTranslatedErrorEvent;
+  OptionalSettings: TJSONObject; FreeOptionalSettings: boolean);
+begin
+  TranslateTextASync(auth_key, target_lang, text,
+    procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
+    begin
+      if assigned(onTextTranslatedEvent) then
+        onTextTranslatedEvent(OriginalText, TranslatedText, SourceLang,
+          TargetLang);
+    end,
+    procedure(OriginalText, SourceLang, TargetLang, ErrorText: string)
+    begin
+      if assigned(onTextTranslatedErrorEvent) then
+        onTextTranslatedErrorEvent(OriginalText, SourceLang, TargetLang,
+          ErrorText);
+    end, OptionalSettings, FreeOptionalSettings);
+end;
+
+class function TDeepLAPI.TranslateTextSync(auth_key, target_lang, text: string;
+  OptionalSettings: TJSONObject; FreeOptionalSettings: boolean): string;
+var
+  DetectedSourceLang: string;
+begin
+  TranslateTextSync(auth_key, target_lang, text, OptionalSettings, FreeOptionalSettings, DetectedSourceLang);
+end;
+
+class function TDeepLAPI.TranslateTextSync(auth_key, source_lang, target_lang,
+  text: string; OptionalSettings: TJSONObject; FreeOptionalSettings: boolean): string;
+var
+  DetectedSourceLang: string;
+begin
+  if source_lang.IsEmpty then
+    result := TranslateTextSync(auth_key, target_lang, text, OptionalSettings, FreeOptionalSettings, DetectedSourceLang)
+  else if not assigned(OptionalSettings) then
+    result := TranslateTextSync(auth_key, target_lang, text, TJSONObject.Create.AddPair('source_lang', source_lang), true,
+      DetectedSourceLang)
+  else
+    result := TranslateTextSync(auth_key, target_lang, text, OptionalSettings.AddPair('source_lang', source_lang),
+      FreeOptionalSettings, DetectedSourceLang);
 end;
 
 initialization
