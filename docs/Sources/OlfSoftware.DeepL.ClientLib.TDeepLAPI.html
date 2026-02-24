@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>OlfSoftware.DeepL.ClientLib: Class TDeepLAPI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TDeepLAPI"></span><h1 class="cio">Class TDeepLAPI</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="OlfSoftware.DeepL.ClientLib.html">OlfSoftware.DeepL.ClientLib</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TDeepLAPI = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TDeepLAPI</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#ServerURLFree">ServerURLFree</a></strong> = 'https://api-free.deepl.com';</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#ServerURLPro">ServerURLPro</a></strong> = 'https://api.deepl.com';</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#Init">Init</a></strong>(AServerURL: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#TranslateTextSync">TranslateTextSync</a></strong>(auth_key, target_lang, text: string; OptionalSettings: TJSONObject; FreeOptionalSettings: boolean; var DetectedSourceLang: string): string; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#TranslateTextSync">TranslateTextSync</a></strong>(auth_key, target_lang, text: string; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true): string; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#TranslateTextSync">TranslateTextSync</a></strong>(auth_key, source_lang, target_lang, text: string; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true): string; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#TranslateTextASync">TranslateTextASync</a></strong>(auth_key, target_lang, text: string; onTextTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#TranslateTextASync">TranslateTextASync</a></strong>(auth_key, source_lang, target_lang, text: string; onTextTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#TranslateTextASync">TranslateTextASync</a></strong>(auth_key, target_lang, text: string; onTextTranslatedEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedEvent">TOnTextTranslatedEvent</a>; onTextTranslatedErrorEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorEvent">TOnTextTranslatedErrorEvent</a> = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#TranslateTextASync">TranslateTextASync</a></strong>(auth_key, source_lang, target_lang, text: string; onTextTranslatedEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedEvent">TOnTextTranslatedEvent</a>; onTextTranslatedErrorEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorEvent">TOnTextTranslatedErrorEvent</a> = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true); overload;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ServerURLFree"></span><code>nested const <strong>ServerURLFree</strong> = 'https://api-free.deepl.com';</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ServerURLPro"></span><code>nested const <strong>ServerURLPro</strong> = 'https://api.deepl.com';</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Init"></span><code>class procedure <strong>Init</strong>(AServerURL: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Call to initialize DeepL API Server URL. By default the Free API Server is used. </p>
+<p>
+ </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>AServerURL</dt>
+<dd>URL to the server API. Use TDeepLAPI.ServerURLPro or TDeepLAPI.ServerURLFree for official servers.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TranslateTextSync"></span><code>class function <strong>TranslateTextSync</strong>(auth_key, target_lang, text: string; OptionalSettings: TJSONObject; FreeOptionalSettings: boolean; var DetectedSourceLang: string): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ call DeepL API to translate the text from source_lang to target_lang (synchrone - current thread is freezed during process) </p>
+<p>
+
+
+<p>look at <a href="https://developers.deepl.com/api-reference/translate">https://developers.deepl.com/api-reference/translate</a>
+
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>OptionalSettings</dt>
+<dd>JSON object contening your optional parameters. They are passed &quot;as it&quot; to DeepL in request body.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TranslateTextSync"></span><code>class function <strong>TranslateTextSync</strong>(auth_key, target_lang, text: string; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TranslateTextSync"></span><code>class function <strong>TranslateTextSync</strong>(auth_key, source_lang, target_lang, text: string; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TranslateTextASync"></span><code>class procedure <strong>TranslateTextASync</strong>(auth_key, target_lang, text: string; onTextTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ call DeepL API to translate the text from source_lang to target_lang (asynchrone - don't freeze current thread) </p>
+<p>
+
+
+<p>look at <a href="https://developers.deepl.com/api-reference/translate">https://developers.deepl.com/api-reference/translate</a>
+
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>OptionalSettings</dt>
+<dd>JSON object contening your optional parameters. They are passed &quot;as it&quot; to DeepL in request body.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TranslateTextASync"></span><code>class procedure <strong>TranslateTextASync</strong>(auth_key, source_lang, target_lang, text: string; onTextTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TranslateTextASync"></span><code>class procedure <strong>TranslateTextASync</strong>(auth_key, target_lang, text: string; onTextTranslatedEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedEvent">TOnTextTranslatedEvent</a>; onTextTranslatedErrorEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorEvent">TOnTextTranslatedErrorEvent</a> = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ call DeepL API to translate the text from source_lang to target_lang (asynchrone - don't freeze current thread) </p>
+<p>
+
+
+<p>look at <a href="https://developers.deepl.com/api-reference/translate">https://developers.deepl.com/api-reference/translate</a>
+
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>OptionalSettings</dt>
+<dd>JSON object contening your optional parameters. They are passed &quot;as it&quot; to DeepL in request body.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TranslateTextASync"></span><code>class procedure <strong>TranslateTextASync</strong>(auth_key, source_lang, target_lang, text: string; onTextTranslatedEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedEvent">TOnTextTranslatedEvent</a>; onTextTranslatedErrorEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorEvent">TOnTextTranslatedErrorEvent</a> = nil; OptionalSettings: TJSONObject = nil; FreeOptionalSettings: boolean = true); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<a href="https://deepl4delphi.developpeur-pascal.fr" target="_blank">DeepL API client library for Delphi</a> (c) 2020-2026 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

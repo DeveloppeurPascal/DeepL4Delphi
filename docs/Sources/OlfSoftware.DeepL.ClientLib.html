@@ -12,7 +12,7 @@
 <ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
 <h1 class="unit">Unit OlfSoftware.DeepL.ClientLib</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section">Classes, Interfaces, Objects and Records</div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
 C2PP ***************************************************************************
@@ -41,21 +41,33 @@ C2PP ***************************************************************************
 
 <p>Project site : <a href="https://github.com/DeveloppeurPascal/DeepL4Delphi">https://github.com/DeveloppeurPascal/DeepL4Delphi</a>
 
-<p>*************************************************************************** File last update : 2026-02-23T19:54:23.362+01:00 Signature : 7dc257b8f7c8b2b37eb895c0df1fe67d953b1b9f ***************************************************************************</p>
-<span id="PasDoc-Uses"></span><h2 class="overview">Overview</h2>
+<p>*************************************************************************** File last update : 2026-02-24T19:48:54.000+01:00 Signature : ce96e802a04e4aaeae5330c5564da79f6ee6b588 ***************************************************************************</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>System.JSON</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html"><code>TDeepLAPI</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextSync">DeepLTranslateTextSync</a></strong>(auth_key, source_lang, target_lang, text: string; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextSync">DeepLTranslateTextSync</a></strong>(auth_key, source_lang, target_lang, text: string; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'): string; deprecated 'use TDeepLAPI.TranslateTextSync';</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>procedure <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextASync">DeepLTranslateTextASync</a></strong>(auth_key, source_lang, target_lang, text: string; onTexTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextASync">DeepLTranslateTextASync</a></strong>(auth_key, source_lang, target_lang, text: string; onTextTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload; deprecated 'use TDeepLAPI.TranslateTextASync';</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>procedure <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextASync">DeepLTranslateTextASync</a></strong>(auth_key, source_lang, target_lang, text: string; onTexTranslatedEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedEvent">TOnTextTranslatedEvent</a>; onTexTranslatedErrorEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorEvent">TOnTextTranslatedErrorEvent</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLTranslateTextASync">DeepLTranslateTextASync</a></strong>(auth_key, source_lang, target_lang, text: string; onTextTranslatedEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedEvent">TOnTextTranslatedEvent</a>; onTextTranslatedErrorEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorEvent">TOnTextTranslatedErrorEvent</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload; deprecated 'use TDeepLAPI.TranslateTextASync';</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>procedure <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLSetAPIURL">DeepLSetAPIURL</a></strong>(APIURL: string = <a href="OlfSoftware.DeepL.ClientLib.html#CDeepLAPIURL_Free">CDeepLAPIURL_Free</a>);</code></td>
+<td class="itemcode"><code>procedure <strong><a href="OlfSoftware.DeepL.ClientLib.html#DeepLSetAPIURL">DeepLSetAPIURL</a></strong>(APIURL: string = <a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#ServerURLFree">TDeepLAPI.ServerURLFree</a>); deprecated 'use TDeepLAPI.Init';</code></td>
 </tr>
 </table>
 <span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
@@ -78,59 +90,59 @@ C2PP ***************************************************************************
 <span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="itemcode"><code><strong><a href="OlfSoftware.DeepL.ClientLib.html#CDeepLAPIURL_Free">CDeepLAPIURL_Free</a></strong> = 'https://api-free.deepl.com';</code></td>
+<td class="itemcode"><code><strong><a href="OlfSoftware.DeepL.ClientLib.html#CDeepLAPIURL_Free">CDeepLAPIURL_Free</a></strong> = <a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#ServerURLFree">TDeepLAPI.ServerURLFree</a> deprecated 'use TDeepLAPI.ServerURLFree';</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="OlfSoftware.DeepL.ClientLib.html#CDeepLAPIURL_Pro">CDeepLAPIURL_Pro</a></strong> = 'https://api.deepl.com';</code></td>
+<td class="itemcode"><code><strong><a href="OlfSoftware.DeepL.ClientLib.html#CDeepLAPIURL_Pro">CDeepLAPIURL_Pro</a></strong> = <a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#ServerURLPro">TDeepLAPI.ServerURLPro</a> deprecated 'use TDeepLAPI.ServerURLPro';</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Functions and Procedures</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="DeepLTranslateTextSync"></span><code>function <strong>DeepLTranslateTextSync</strong>(auth_key, source_lang, target_lang, text: string; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'): string;</code></td>
+<td class="itemcode"><span id="DeepLTranslateTextSync"></span><code>function <strong>DeepLTranslateTextSync</strong>(auth_key, source_lang, target_lang, text: string; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'): string; deprecated 'use TDeepLAPI.TranslateTextSync';</code></td>
 </tr>
 <tr><td colspan="1">
-<p>
+<p class="hint_directive">Warning: this symbol is deprecated: use TDeepLAPI.TranslateTextSync</p><p>
  call DeepL API to translate the text from source_lang to target_lang (synchrone - current thread is freezed during process) </p>
 <p>
 
 
-<p>look at <a href="https://www.deepl.com/docs-api/translating-text/response/">https://www.deepl.com/docs-api/translating-text/response/</a></p>
+<p>look at <a href="https://developers.deepl.com/api-reference/translate">https://developers.deepl.com/api-reference/translate</a></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="DeepLTranslateTextASync"></span><code>procedure <strong>DeepLTranslateTextASync</strong>(auth_key, source_lang, target_lang, text: string; onTexTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload;</code></td>
+<td class="itemcode"><span id="DeepLTranslateTextASync"></span><code>procedure <strong>DeepLTranslateTextASync</strong>(auth_key, source_lang, target_lang, text: string; onTextTranslatedProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedProc">TOnTextTranslatedProc</a>; onTextTranslatedErrorProc: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorProc">TOnTextTranslatedErrorProc</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload; deprecated 'use TDeepLAPI.TranslateTextASync';</code></td>
 </tr>
 <tr><td colspan="1">
-<p>
+<p class="hint_directive">Warning: this symbol is deprecated: use TDeepLAPI.TranslateTextASync</p><p>
  call DeepL API to translate the text from source_lang to target_lang (asynchrone - don't freeze current thread) </p>
 <p>
 
 
-<p>look at <a href="https://www.deepl.com/docs-api/translating-text/response/">https://www.deepl.com/docs-api/translating-text/response/</a></p>
+<p>look at <a href="https://developers.deepl.com/api-reference/translate">https://developers.deepl.com/api-reference/translate</a></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="DeepLTranslateTextASync"></span><code>procedure <strong>DeepLTranslateTextASync</strong>(auth_key, source_lang, target_lang, text: string; onTexTranslatedEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedEvent">TOnTextTranslatedEvent</a>; onTexTranslatedErrorEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorEvent">TOnTextTranslatedErrorEvent</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload;</code></td>
+<td class="itemcode"><span id="DeepLTranslateTextASync"></span><code>procedure <strong>DeepLTranslateTextASync</strong>(auth_key, source_lang, target_lang, text: string; onTextTranslatedEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedEvent">TOnTextTranslatedEvent</a>; onTextTranslatedErrorEvent: <a href="OlfSoftware.DeepL.ClientLib.html#TOnTextTranslatedErrorEvent">TOnTextTranslatedErrorEvent</a> = nil; split_sentences: string = '1'; preserve_formatting: string = '0'; formality: string = 'default'); overload; deprecated 'use TDeepLAPI.TranslateTextASync';</code></td>
 </tr>
 <tr><td colspan="1">
-<p>
+<p class="hint_directive">Warning: this symbol is deprecated: use TDeepLAPI.TranslateTextASync</p><p>
  call DeepL API to translate the text from source_lang to target_lang (asynchrone - don't freeze current thread) </p>
 <p>
 
 
-<p>look at <a href="https://www.deepl.com/docs-api/translating-text/response/">https://www.deepl.com/docs-api/translating-text/response/</a></p>
+<p>look at <a href="https://developers.deepl.com/api-reference/translate">https://developers.deepl.com/api-reference/translate</a></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="DeepLSetAPIURL"></span><code>procedure <strong>DeepLSetAPIURL</strong>(APIURL: string = <a href="OlfSoftware.DeepL.ClientLib.html#CDeepLAPIURL_Free">CDeepLAPIURL_Free</a>);</code></td>
+<td class="itemcode"><span id="DeepLSetAPIURL"></span><code>procedure <strong>DeepLSetAPIURL</strong>(APIURL: string = <a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#ServerURLFree">TDeepLAPI.ServerURLFree</a>); deprecated 'use TDeepLAPI.Init';</code></td>
 </tr>
 <tr><td colspan="1">
-<p>
+<p class="hint_directive">Warning: this symbol is deprecated: use TDeepLAPI.Init</p><p>
  Call to initialize DeepL API URL. If you forget to do, you will be on Free API. </p>
 </td></tr>
 </table>
@@ -176,17 +188,17 @@ C2PP ***************************************************************************
 <h3 class="detail">Constants</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="CDeepLAPIURL_Free"></span><code><strong>CDeepLAPIURL_Free</strong> = 'https://api-free.deepl.com';</code></td>
+<td class="itemcode"><span id="CDeepLAPIURL_Free"></span><code><strong>CDeepLAPIURL_Free</strong> = <a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#ServerURLFree">TDeepLAPI.ServerURLFree</a> deprecated 'use TDeepLAPI.ServerURLFree';</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="hint_directive">Warning: this symbol is deprecated: use TDeepLAPI.ServerURLFree</p>&nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="CDeepLAPIURL_Pro"></span><code><strong>CDeepLAPIURL_Pro</strong> = 'https://api.deepl.com';</code></td>
+<td class="itemcode"><span id="CDeepLAPIURL_Pro"></span><code><strong>CDeepLAPIURL_Pro</strong> = <a href="OlfSoftware.DeepL.ClientLib.TDeepLAPI.html#ServerURLPro">TDeepLAPI.ServerURLPro</a> deprecated 'use TDeepLAPI.ServerURLPro';</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="hint_directive">Warning: this symbol is deprecated: use TDeepLAPI.ServerURLPro</p>&nbsp;</td></tr>
 </table>
 <a href="https://deepl4delphi.developpeur-pascal.fr" target="_blank">DeepL API client library for Delphi</a> (c) 2020-2026 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
