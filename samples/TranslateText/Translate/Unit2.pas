@@ -39,8 +39,8 @@
   https://github.com/DeveloppeurPascal/DeepL4Delphi
 
   ***************************************************************************
-  File last update : 2026-02-24T17:33:30.000+01:00
-  Signature : 6a27756186e5faf84cb5e9e21fe9b37fdff15e8c
+  File last update : 2026-02-24T19:42:22.000+01:00
+  Signature : 7dc30a53545a3cacf7974f89695ebf96424d10d6
   ***************************************************************************
 *)
 
@@ -95,17 +95,17 @@ begin
   Button1.EnableD := false;
   try
     Memo1.Lines.Add('Translation of "' + Edit1.Text + '" submitted.');
-    TDeepLAPI.TranslateTextASync(tfile.ReadAllText(FAPIKeyFileName), 'FR', 'EN',
+    TDeepLAPI.TranslateTextASync(tfile.ReadAllText(FAPIKeyFileName), 'EN',
       Edit1.Text,
       procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
       begin
-        Memo1.Lines.Add('Translating "' + OriginalText + '"');
+        Memo1.Lines.Add('Translating "' + OriginalText + '" from ' + SourceLang + ' to ' + TargetLang);
         Memo1.Lines.Add('=> "' + TranslatedText + '"');
         Button1.EnableD := true;
       end,
       procedure(OriginalText, SourceLang, TargetLang, ErrorText: string)
       begin
-        Memo1.Lines.Add('Translating "' + OriginalText + '"');
+        Memo1.Lines.Add('Translating "' + OriginalText + '" from ' + SourceLang + ' to ' + TargetLang);
         Memo1.Lines.Add('=> "' + ErrorText + '"');
         Button1.EnableD := true;
       end);
