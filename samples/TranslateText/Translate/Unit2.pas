@@ -39,8 +39,8 @@
   https://github.com/DeveloppeurPascal/DeepL4Delphi
 
   ***************************************************************************
-  File last update : 2026-02-23T19:54:23.352+01:00
-  Signature : bd3a5591d0b3e177bb614f8a3fe074e8bcb170e9
+  File last update : 2026-02-24T17:33:30.000+01:00
+  Signature : 6a27756186e5faf84cb5e9e21fe9b37fdff15e8c
   ***************************************************************************
 *)
 
@@ -95,7 +95,7 @@ begin
   Button1.EnableD := false;
   try
     Memo1.Lines.Add('Translation of "' + Edit1.Text + '" submitted.');
-    DeepLTranslateTextASync(tfile.ReadAllText(FAPIKeyFileName), 'FR', 'EN',
+    TDeepLAPI.TranslateTextASync(tfile.ReadAllText(FAPIKeyFileName), 'FR', 'EN',
       Edit1.Text,
       procedure(OriginalText, TranslatedText, SourceLang, TargetLang: string)
       begin
